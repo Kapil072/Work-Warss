@@ -3,60 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { useQuiz } from '@/contexts/QuizContext';
-import { quizData } from '@/data/quizData';
 import LevelUpPopup from '@/components/LevelUpPopup';
 import Timer from '@/components/Timer';
 import XPProgressBar from '@/components/XPProgressBar';
-
-const AnswerButton = ({ option, index, isSelected, onClick, isAnswered, isCorrect }: { 
-  option: string; 
-  index: number; 
-  isSelected: boolean; 
-  onClick: () => void;
-  isAnswered: boolean;
-  isCorrect: boolean;
-}) => {
-  const getButtonStyle = () => {
-    if (!isAnswered) {
-      return isSelected
-        ? 'bg-blue-500 text-white shadow-lg'
-        : 'bg-gray-100 text-gray-800 hover:bg-gray-200 hover:shadow-md';
-    }
-    
-    if (isCorrect) {
-      return 'bg-blue-500 text-white shadow-lg';
-    }
-    
-    if (isSelected && !isCorrect) {
-      return 'bg-red-500 text-white shadow-lg';
-    }
-    
-    return 'bg-gray-100 text-gray-800 opacity-50';
-  };
-
-  return (
-    <button
-      onClick={onClick}
-      disabled={isAnswered}
-      className={`w-full p-3 sm:p-4 rounded-xl sm:rounded-2xl text-sm sm:text-lg font-medium transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] ${getButtonStyle()}`}
-    >
-      <div className="flex items-center">
-        <span className="w-6 h-6 sm:w-8 sm:h-8 bg-white/20 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold mr-3 flex-shrink-0">
-          {String.fromCharCode(65 + index)}
-        </span>
-        <span className="text-left">{option}</span>
-      </div>
-    </button>
-  );
-};
+import AnswerButton from '@/components/AnswerButton';
 
 const Quiz = () => {
   const navigate = useNavigate();
-  const { 
+  const {
     questions,
-    setQuestions, 
-    goToNextQuestion, 
-    answerQuestion, 
+    setQuestions,
+    goToNextQuestion,
+    submitAnswer,
     isQuizCompleted,
     userAnswers,
     currentQuestionIndex,
@@ -77,12 +35,27 @@ const Quiz = () => {
     currentRank
   } = useQuiz();
 
-  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isAnswered, setIsAnswered] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(timePerQuestion);
 
   useEffect(() => {
-    setQuestions(quizData);
-  }, [setQuestions]);
+    setTimeLeft(timePerQuestion);
+    if (isAnswered) return;
+    if (!questions[currentQuestionIndex]) return;
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          handleTimeUp();
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+    // eslint-disable-next-line
+  }, [currentQuestionIndex, isAnswered, timePerQuestion]);
 
   useEffect(() => {
     if (!topic) {
@@ -97,16 +70,27 @@ const Quiz = () => {
     }
   }, [isQuizCompleted, navigate, calculateScore]);
 
-  const handleAnswerSelected = (answerIndex: number) => {
-    setSelectedAnswer(answerIndex);
+  const handleTimeUp = () => {
     setIsAnswered(true);
-    const currentQuestion = questions[currentQuestionIndex];
-    answerQuestion(currentQuestion.options[answerIndex]);
     setTimeout(() => {
       setSelectedAnswer(null);
       setIsAnswered(false);
       goToNextQuestion();
-    }, 1500);
+      setTimeLeft(timePerQuestion);
+    }, 1200);
+  };
+
+  const handleAnswerSelected = (answerIndex) => {
+    setSelectedAnswer(answerIndex);
+    setIsAnswered(true);
+    const currentQuestion = questions[currentQuestionIndex];
+    submitAnswer(currentQuestion.options[answerIndex]);
+    setTimeout(() => {
+      setSelectedAnswer(null);
+      setIsAnswered(false);
+      goToNextQuestion();
+      setTimeLeft(timePerQuestion);
+    }, 1200);
   };
 
   const handleEndQuiz = () => {
@@ -136,7 +120,7 @@ const Quiz = () => {
 
   return (
     <div className={`min-h-screen bg-gradient-to-br ${getBackgroundColor()} p-4 transition-colors duration-500`}>
-      {/* Mobile Layout - Keep Original */}
+      {/* Mobile Layout */}
       <div className="block lg:hidden max-w-md mx-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
@@ -151,17 +135,14 @@ const Quiz = () => {
             <span className="text-sm font-medium text-gray-600">Level {currentRank}</span>
           </div>
         </div>
-
         {/* XP Progress Bar */}
         <div className="mb-4">
           <XPProgressBar />
         </div>
-
         {/* Timer */}
         <div className="mb-6">
           <Timer />
         </div>
-
         {/* Question Card */}
         <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg mb-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">
@@ -181,7 +162,6 @@ const Quiz = () => {
             ))}
           </div>
         </div>
-
         <div className="mt-4 text-center">
           <Button
             onClick={handleEndQuiz}
@@ -191,7 +171,6 @@ const Quiz = () => {
           </Button>
         </div>
       </div>
-
       {/* Desktop Layout */}
       <div className="hidden lg:block w-full max-w-[2000px] mx-auto px-8 py-6">
         <div className="grid grid-cols-12 gap-8">
@@ -210,7 +189,6 @@ const Quiz = () => {
                 <span className="text-lg font-medium text-gray-600">Level {currentRank}</span>
               </div>
             </div>
-
             {/* Question Card */}
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg mb-8">
               <h2 className="text-2xl font-semibold text-gray-800 mb-6">
@@ -230,7 +208,6 @@ const Quiz = () => {
                 ))}
               </div>
             </div>
-
             <div className="text-center">
               <Button
                 onClick={handleEndQuiz}
@@ -240,7 +217,6 @@ const Quiz = () => {
               </Button>
             </div>
           </div>
-
           {/* Sidebar - Timer and XP */}
           <div className="col-span-4">
             <div className="sticky top-6 space-y-6">
@@ -249,7 +225,6 @@ const Quiz = () => {
                 <h3 className="text-lg font-semibold text-gray-800 mb-4">Progress</h3>
                 <XPProgressBar />
               </div>
-
               {/* Timer */}
               <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-lg">
                 <h3 className="text-lg font-semibold text-gray-800 mb-4">Time Remaining</h3>
@@ -259,7 +234,6 @@ const Quiz = () => {
           </div>
         </div>
       </div>
-
       {showLevelUpPopup && <LevelUpPopup />}
     </div>
   );

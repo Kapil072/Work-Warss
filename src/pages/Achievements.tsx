@@ -263,9 +263,9 @@ const Achievements = () => {
 
   const getBadgeColor = (badge: BadgeType) => {
     switch (badge) {
-      case 'Bronze Badge': return 'from-[#CE8946] via-[#CE8946]/90 to-[#CE8946]/80 shadow-[#CE8946]/50 animate-pulse-slow';
-      case 'Silver Badge': return 'from-[#6D6E71] via-[#6D6E71]/90 to-[#6D6E71]/80 shadow-[#6D6E71]/50 animate-pulse-slow';
-      case 'Gold Badge': return 'from-[#EFBF04] via-[#EFBF04]/90 to-[#EFBF04]/80 shadow-[#EFBF04]/50 animate-pulse-slow badge-glow';
+      case 'Bronze Badge': return 'from-[#CD7F32] via-[#E8AC7E] to-[#CD7F32] shadow-[#CD7F32]/50 animate-pulse-slow';
+      case 'Silver Badge': return 'from-[#C0C0C0] via-[#E8E8E8] to-[#C0C0C0] shadow-[#C0C0C0]/50 animate-pulse-slow';
+      case 'Gold Badge': return 'from-[#FFD700] via-[#FFF1AA] to-[#FFD700] shadow-[#FFD700]/50 animate-pulse-slow badge-glow';
       default: return 'from-blue-400 to-blue-500';
     }
   };
@@ -337,21 +337,22 @@ const Achievements = () => {
           </div>
           
           {/* Mobile Layout */}
-          <div className="flex sm:hidden justify-between items-center gap-2 px-2">
+          <div className="flex sm:hidden justify-center items-end gap-4 px-2 py-6">
             {[
-              { type: 'Bronze Badge', order: 'order-1' },
-              { type: 'Gold Badge', order: 'order-2' },
-              { type: 'Silver Badge', order: 'order-3' }
-            ].map(({ type, order }) => {
+              { type: 'Silver Badge', position: 2 },
+              { type: 'Gold Badge', position: 1 },
+              { type: 'Bronze Badge', position: 3 }
+            ].map(({ type, position }) => {
               const badgeCount = badgeCounts.find(b => b.type === type);
               const badgeEmoji = getBadgeEmoji(type as BadgeType);
               const badgeColor = getBadgeColor(type as BadgeType);
               const hasBadge = badges.includes(type as BadgeType);
+              const isGold = type === 'Gold Badge';
               
               return (
                 <motion.div
                   key={type}
-                  className={`group cursor-pointer ${order} flex-1 max-w-[100px] ${type === 'Gold Badge' ? 'z-10' : ''}`}
+                  className={`group cursor-pointer relative ${position === 1 ? 'order-2 -translate-y-6' : position === 2 ? 'order-1 -translate-y-3' : 'order-3'}`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => {
@@ -359,9 +360,9 @@ const Achievements = () => {
                     setShowBadgeDetails(true);
                   }}
                 >
-                  <div className={`bg-gradient-to-br from-white to-gray-50 rounded-xl p-3 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 ${type === 'Gold Badge' ? 'transform scale-110' : ''}`}>
+                  <div className={`bg-gradient-to-br from-white to-gray-50 rounded-xl p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 ${isGold ? 'transform scale-110' : ''}`}>
                     <div className="flex flex-col items-center">
-                      <div className={`bg-gradient-to-br ${badgeColor} p-2 rounded-full text-2xl transform transition-all duration-300 ${hasBadge ? 'shadow-lg animate-pulse-slow' : 'opacity-50'} ${type === 'Gold Badge' ? 'scale-110' : ''}`}>
+                      <div className={`bg-gradient-to-br ${badgeColor} p-2.5 rounded-full text-2xl transform transition-all duration-300 badge-shine ${hasBadge ? 'shadow-xl' : 'opacity-70'} ${isGold ? 'scale-110' : ''}`}>
                         {badgeEmoji}
                       </div>
                       <div className="mt-2 text-center">
@@ -379,27 +380,30 @@ const Achievements = () => {
                       )}
                     </div>
                   </div>
+                  {/* Podium Base - Mobile */}
+                  <div className={`absolute -bottom-4 left-0 right-0 h-${position === 1 ? '16' : position === 2 ? '12' : '8'} bg-gradient-to-b from-gray-200 to-gray-300 rounded-t-lg podium-base`}></div>
                 </motion.div>
               );
             })}
           </div>
 
           {/* Desktop Layout */}
-          <div className="hidden sm:grid grid-cols-3 gap-4">
+          <div className="hidden sm:flex justify-center items-end gap-8 py-8">
             {[
-              { type: 'Bronze Badge' },
-              { type: 'Gold Badge' },
-              { type: 'Silver Badge' }
-            ].map(({ type }) => {
+              { type: 'Silver Badge', position: 2 },
+              { type: 'Gold Badge', position: 1 },
+              { type: 'Bronze Badge', position: 3 }
+            ].map(({ type, position }) => {
               const badgeCount = badgeCounts.find(b => b.type === type);
               const badgeEmoji = getBadgeEmoji(type as BadgeType);
               const badgeColor = getBadgeColor(type as BadgeType);
               const hasBadge = badges.includes(type as BadgeType);
+              const isGold = type === 'Gold Badge';
               
               return (
                 <motion.div
                   key={type}
-                  className={`group cursor-pointer ${type === 'Gold Badge' ? 'z-10' : ''}`}
+                  className={`group cursor-pointer relative ${position === 1 ? 'order-2 -translate-y-8' : position === 2 ? 'order-1 -translate-y-4' : 'order-3'}`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => {
@@ -407,28 +411,30 @@ const Achievements = () => {
                     setShowBadgeDetails(true);
                   }}
                 >
-                  <div className={`bg-gradient-to-br from-white to-gray-50 rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 ${type === 'Gold Badge' ? 'transform scale-105' : ''}`}>
-                    <div className="flex items-center justify-between mb-3">
-                      <div className={`bg-gradient-to-br ${badgeColor} p-3 rounded-full text-3xl transform transition-all duration-300 ${hasBadge ? 'shadow-lg animate-pulse-slow' : 'opacity-50'} ${type === 'Gold Badge' ? 'scale-110' : ''}`}>
+                  <div className={`bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 ${isGold ? 'transform scale-110' : ''}`}>
+                    <div className="flex flex-col items-center gap-4">
+                      <div className={`bg-gradient-to-br ${badgeColor} p-4 rounded-full text-4xl transform transition-all duration-300 badge-shine ${hasBadge ? 'shadow-xl' : 'opacity-70'} ${isGold ? 'scale-110' : ''}`}>
                         {badgeEmoji}
                       </div>
-                      <div className="text-right">
-                        <div className="text-2xl font-bold text-gray-800">{badgeCount?.count || 0}</div>
+                      <div className="text-center">
+                        <div className="text-3xl font-bold text-gray-800">{badgeCount?.count || 0}</div>
                         <div className="text-sm text-gray-600">Earned</div>
                       </div>
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-base font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
-                        {type}
-                      </span>
-                      {hasBadge && (
-                        <span className="text-sm text-green-600 mt-1 flex items-center gap-1">
-                          <CheckCircle2 className="h-4 w-4" />
-                          Certified
+                      <div className="flex flex-col items-center">
+                        <span className="text-lg font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
+                          {type.split(' ')[0]}
                         </span>
-                      )}
+                        {hasBadge && (
+                          <span className="text-sm text-green-600 mt-1 flex items-center gap-1">
+                            <CheckCircle2 className="h-4 w-4" />
+                            Certified
+                          </span>
+                        )}
+                      </div>
                     </div>
                   </div>
+                  {/* Podium Base */}
+                  <div className={`absolute -bottom-8 left-0 right-0 h-${position === 1 ? '32' : position === 2 ? '24' : '16'} bg-gradient-to-b from-gray-200 to-gray-300 rounded-t-lg podium-base`}></div>
                 </motion.div>
               );
             })}
@@ -632,12 +638,12 @@ const Achievements = () => {
             0%, 100% {
               opacity: 1;
               transform: scale(1);
-              filter: brightness(1);
+              filter: brightness(1.1);
             }
             50% {
               opacity: 1;
               transform: scale(1.05);
-              filter: brightness(1.2);
+              filter: brightness(1.3);
             }
           }
 
@@ -647,22 +653,22 @@ const Achievements = () => {
 
           @keyframes badgeGlow {
             0% {
-              box-shadow: 0 0 10px rgba(255, 255, 255, 0.6),
-                         0 0 20px rgba(239, 191, 4, 0.4),
-                         0 0 30px rgba(239, 191, 4, 0.2);
-              filter: brightness(1.1);
+              box-shadow: 0 0 15px rgba(255, 255, 255, 0.7),
+                         0 0 30px rgba(255, 215, 0, 0.5),
+                         0 0 45px rgba(255, 215, 0, 0.3);
+              filter: brightness(1.2);
             }
             50% {
-              box-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
-                         0 0 30px rgba(239, 191, 4, 0.6),
-                         0 0 40px rgba(239, 191, 4, 0.4);
-              filter: brightness(1.3);
+              box-shadow: 0 0 25px rgba(255, 255, 255, 0.9),
+                         0 0 40px rgba(255, 215, 0, 0.7),
+                         0 0 55px rgba(255, 215, 0, 0.5);
+              filter: brightness(1.4);
             }
             100% {
-              box-shadow: 0 0 10px rgba(255, 255, 255, 0.6),
-                         0 0 20px rgba(239, 191, 4, 0.4),
-                         0 0 30px rgba(239, 191, 4, 0.2);
-              filter: brightness(1.1);
+              box-shadow: 0 0 15px rgba(255, 255, 255, 0.7),
+                         0 0 30px rgba(255, 215, 0, 0.5),
+                         0 0 45px rgba(255, 215, 0, 0.3);
+              filter: brightness(1.2);
             }
           }
 
@@ -671,36 +677,75 @@ const Achievements = () => {
           }
 
           .badge-bronze {
-            background: linear-gradient(135deg, #CE8946 0%, #CE8946 50%, #CE8946 100%);
-            box-shadow: 0 0 20px rgba(206, 137, 70, 0.4);
-            filter: brightness(1.1);
+            background: linear-gradient(135deg, #CD7F32 0%, #E8AC7E 50%, #CD7F32 100%);
+            box-shadow: 0 0 25px rgba(205, 127, 50, 0.6);
+            filter: brightness(1.2);
           }
 
           .badge-silver {
-            background: linear-gradient(135deg, #6D6E71 0%, #6D6E71 50%, #6D6E71 100%);
-            box-shadow: 0 0 20px rgba(109, 110, 113, 0.4);
-            filter: brightness(1.1);
+            background: linear-gradient(135deg, #C0C0C0 0%, #E8E8E8 50%, #C0C0C0 100%);
+            box-shadow: 0 0 25px rgba(192, 192, 192, 0.6);
+            filter: brightness(1.2);
           }
 
           .badge-gold {
-            background: linear-gradient(135deg, #EFBF04 0%, #EFBF04 50%, #EFBF04 100%);
-            box-shadow: 0 0 25px rgba(239, 191, 4, 0.5);
-            filter: brightness(1.2);
+            background: linear-gradient(135deg, #FFD700 0%, #FFF1AA 50%, #FFD700 100%);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
+            filter: brightness(1.3);
           }
 
-          .hover\:shadow-amber-400\/50:hover {
-            box-shadow: 0 0 25px rgba(206, 137, 70, 0.5);
-            filter: brightness(1.2);
+          /* Shine effect */
+          @keyframes shine {
+            0% {
+              transform: translateX(-100%) rotate(45deg);
+            }
+            100% {
+              transform: translateX(100%) rotate(45deg);
+            }
           }
 
-          .hover\:shadow-gray-300\/50:hover {
-            box-shadow: 0 0 25px rgba(109, 110, 113, 0.5);
-            filter: brightness(1.2);
+          .badge-shine {
+            position: relative;
+            overflow: hidden;
           }
 
-          .hover\:shadow-yellow-300\/50:hover {
-            box-shadow: 0 0 25px rgba(239, 191, 4, 0.5);
-            filter: brightness(1.2);
+          .badge-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+              45deg,
+              transparent 45%,
+              rgba(255, 255, 255, 0.2) 48%,
+              rgba(255, 255, 255, 0.5) 50%,
+              rgba(255, 255, 255, 0.2) 52%,
+              transparent 55%
+            );
+            animation: shine 2s infinite;
+          }
+
+          .podium-base {
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+          }
+
+          .podium-base::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(to right,
+              rgba(255, 255, 255, 0.2),
+              rgba(255, 255, 255, 0.4) 50%,
+              rgba(255, 255, 255, 0.2)
+            );
+            border-radius: 4px;
           }
         `}
       </style>
