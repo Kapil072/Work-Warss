@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { toast } from "@/hooks/use-toast";
+import { quizData } from '../../saved_quizzes/quizData';
 
 // Types for our quiz data
 export interface QuizQuestion {
@@ -9,6 +10,7 @@ export interface QuizQuestion {
   correctAnswer: string;
   topic?: string;
   difficulty?: QuizLevel;
+  explanation: string;  // Add explanation field
 }
 
 export type QuizLevel = 'unranked' | 'bronze' | 'silver' | 'gold';
@@ -19,7 +21,8 @@ export type QuizTopic =
   'businessman' | 'scientist' | 'psychologist' | 'accountant' |
   'general' | 'sports' | 'history' | 'geography' |
   'javascript' | 'html' | 'css' | 'anatomy' | 'pharmacology' |
-  'criminal' | 'civil' | 'pedagogy' | 'marketing';
+  'criminal' | 'civil' | 'pedagogy' | 'marketing' |
+  'DummySkill';
 
 export type Badge = 'Unranked Badge' | 'Bronze Badge' | 'Silver Badge' | 'Gold Badge';
 
@@ -44,15 +47,25 @@ const COIN_REWARDS = {
 
 type Rank = 'unranked' | 'bronze' | 'silver' | 'gold';
 
+// Add new types for quiz setup
+export type QuizSetup = {
+  industry: string;
+  role: string;
+  cluster: string;
+  skill: string;
+  questions?: QuizQuestion[];
+};
+
 interface QuizContextType {
   questions: QuizQuestion[];
   currentQuestionIndex: number;
+  currentQuestion: QuizQuestion | null;
   userAnswers: string[];
   score: number;
   setQuestions: (questions: QuizQuestion[]) => void;
   goToNextQuestion: () => void;
   goToPreviousQuestion: () => void;
-  answerQuestion: (answer: string) => void;
+  submitAnswer: (answer: string) => void;
   resetQuiz: () => void;
   isQuizCompleted: boolean;
   calculateScore: () => void;
@@ -83,6 +96,12 @@ interface QuizContextType {
   xpToNextLevel: number;
   updateXP: (amount: number) => void;
   saveCurrentLevelProgress: () => void;
+  showLevelUpPopup: boolean;
+  setShowLevelUpPopup: (show: boolean) => void;
+  quizSetup: QuizSetup | null;
+  setQuizSetup: (setup: QuizSetup) => void;
+  isLoading: boolean;
+  setIsLoading: (loading: boolean) => void;
 }
 
 const QuizContext = createContext<QuizContextType | undefined>(undefined);
@@ -125,7 +144,58 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
   const [xp, setXP] = useState(0);
   const [currentRank, setCurrentRank] = useState<Rank>('unranked');
   const [xpToNextLevel, setXPToNextLevel] = useState(XP_REQUIREMENTS.unranked);
-  const [timePerQuestion, setTimePerQuestion] = useState(10); // Initialize with unranked time
+  const [timePerQuestion, setTimePerQuestion] = useState(10);
+  const [showLevelUpPopup, setShowLevelUpPopup] = useState(false);
+  const [quizSetup, setQuizSetup] = useState<QuizSetup | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Get current question
+  const currentQuestion = filteredQuestions[currentQuestionIndex] || null;
+
+  // Submit answer function
+  const submitAnswer = async (answer: string) => {
+    setIsLoading(true);
+    try {
+      // Handle the answer submission
+      if (currentQuestionIndex < filteredQuestions.length) {
+        const newAnswers = [...userAnswers];
+        newAnswers[currentQuestionIndex] = answer;
+        setUserAnswers(newAnswers);
+
+        // Check if answer is correct and update XP
+        const isCorrect = answer === currentQuestion?.correctAnswer;
+        updateXP(isCorrect ? XP_REWARDS.correct : XP_REWARDS.incorrect);
+        
+        // Update streak
+        if (isCorrect) {
+          const newStreak = streak + 1;
+          setStreak(newStreak);
+          if (newStreak > maxStreak) {
+            setMaxStreak(newStreak);
+          }
+        } else {
+          setStreak(0);
+        }
+
+        // Check level progression or completion
+        checkLevelProgressionOrCompletion();
+
+        // Move to next question after a short delay
+        setTimeout(() => {
+          goToNextQuestion();
+          setIsLoading(false);
+        }, 1000);
+      }
+    } catch (error) {
+      console.error('Error submitting answer:', error);
+      setIsLoading(false);
+      toast({
+        title: "Error",
+        description: "Failed to submit answer. Please try again.",
+        variant: "destructive"
+      });
+    }
+  };
 
   // Update timePerQuestion when rank changes
   useEffect(() => {
@@ -157,74 +227,122 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
     setAllQuestions(allQuestions);
   };
 
-  // Filter questions based on the selected topic and current level
-  useEffect(() => {
-    if (questions.length > 0) {
-      // Get available topics for current level
-      const levelTopics = LEVEL_TOPICS[currentLevel];
+  // Function to generate questions using AI
+  const generateQuestionsForLevel = async (level: QuizLevel, topic: QuizTopic) => {
+    if (!quizSetup) {
+      console.error('Quiz setup not found, redirecting to setup page');
+      return [];
+    }
+
+    try {
+      const apiBaseUrl = 'http://localhost:5000';
       
-      // If no topic is selected, randomly select one from the level's topics
+      // First, test if the server is running
+      const testResponse = await fetch(`${apiBaseUrl}/test`);
+      if (!testResponse.ok) {
+        throw new Error('Server is not responding. Please make sure the server is running.');
+      }
+
+      const requestData = {
+        skill: quizSetup.skill,
+        industry: quizSetup.industry,
+        role: quizSetup.role,
+        cluster: quizSetup.cluster,
+        level: level.charAt(0).toUpperCase() + level.slice(1)
+      };
+
+      console.log('Sending request with data:', requestData);
+
+      const response = await fetch(`${apiBaseUrl}/generate-questions`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(requestData),
+      });
+
+      const responseData = await response.json();
+      console.log('Response data:', responseData);
+      
+      if (!response.ok || responseData.status === 'error') {
+        throw new Error(responseData.message || 'Failed to generate questions');
+      }
+
+      if (!responseData.questions || !Array.isArray(responseData.questions)) {
+        throw new Error('Invalid response format: missing questions array');
+      }
+
+      return responseData.questions;
+    } catch (error) {
+      console.error('Error generating questions:', error);
+      throw error;
+    }
+  };
+
+  // Update the useEffect that filters questions to use AI generation
+  useEffect(() => {
+    const fetchQuestions = async () => {
+      if (!quizSetup) {
+        console.log('No quiz setup found, redirecting to setup page');
+        return;
+      }
+
       if (!topic) {
+        // Get available topics for current level
+        const levelTopics = LEVEL_TOPICS[currentLevel];
         const randomTopic = levelTopics[Math.floor(Math.random() * levelTopics.length)];
         setTopic(randomTopic as QuizTopic);
         return;
       }
 
-      // First filter by topic
-      const topicQuestions = questions.filter(q => {
-        // For programming topics, include both specific and general programming questions
-        if (topic === 'programmer' || topic === 'javascript' || topic === 'html' || topic === 'css') {
-          return q.topic === topic || q.topic === 'programmer';
+      // If dummy options are selected, use local dummy questions
+      if (
+        quizSetup.industry === 'Dummy Industry' &&
+        quizSetup.role === 'Dummy Role' &&
+        quizSetup.cluster === 'Dummy Cluster' &&
+        quizSetup.skill === 'Dummy Skill'
+      ) {
+        if (topic !== 'DummySkill') {
+          setTopic('DummySkill');
+          return;
         }
-        return q.topic === topic;
-      });
-      
-      // If no questions found for the topic, use a random topic from the level's topics
-      if (topicQuestions.length === 0) {
-        const randomTopic = levelTopics[Math.floor(Math.random() * levelTopics.length)];
-        setTopic(randomTopic as QuizTopic);
+        const dummyQuestions = quizData.filter(q => q.topic === 'DummySkill' && q.difficulty === currentLevel);
+        setFilteredQuestions(dummyQuestions);
+        setCurrentQuestionIndex(0);
+        setUserAnswers([]);
+        setLevelComplete(false);
+        setProgressInLevel(0);
+        setIsLoading(false);
         return;
       }
+
+      try {
+        setIsLoading(true);
+      // Generate questions for the current level and topic
+      const questions = await generateQuestionsForLevel(currentLevel, topic);
       
-      // Then filter by current level
-      const levelQuestions = topicQuestions.filter(q => q.difficulty === currentLevel);
-      
-      // If we don't have enough questions for the level, use questions from other levels
-      let finalQuestions = levelQuestions;
-      if (levelQuestions.length < QUESTIONS_PER_LEVEL) {
-        // Get questions from other levels, prioritizing closer levels
-        const remainingQuestions = topicQuestions.filter(q => q.difficulty !== currentLevel);
-        
-        // Sort remaining questions by level proximity
-        const sortedRemaining = remainingQuestions.sort((a, b) => {
-          const levelOrder = { 'unranked': 0, 'bronze': 1, 'silver': 2, 'gold': 3 };
-          const currentLevelOrder = levelOrder[currentLevel];
-          const aOrder = levelOrder[a.difficulty as QuizLevel];
-          const bOrder = levelOrder[b.difficulty as QuizLevel];
-          
-          // Calculate distance from current level
-          const aDistance = Math.abs(aOrder - currentLevelOrder);
-          const bDistance = Math.abs(bOrder - currentLevelOrder);
-          
-          return aDistance - bDistance;
+      if (questions.length > 0) {
+        setFilteredQuestions(questions);
+        setCurrentQuestionIndex(0);
+        setUserAnswers([]);
+        setLevelComplete(false);
+        setProgressInLevel(0);
+        }
+      } catch (error) {
+        console.error('Error fetching questions:', error);
+        toast({
+          title: "Error",
+          description: error instanceof Error ? error.message : "Failed to generate questions",
+          variant: "destructive"
         });
-        
-        finalQuestions = [...levelQuestions, ...sortedRemaining].slice(0, QUESTIONS_PER_LEVEL);
+      } finally {
+        setIsLoading(false);
       }
-      
-      // Shuffle questions to randomize
-      const shuffled = [...finalQuestions].sort(() => Math.random() - 0.5);
-      
-      // Take exactly 10 questions
-      const limitedQuestions = shuffled.slice(0, QUESTIONS_PER_LEVEL);
-      
-      setFilteredQuestions(limitedQuestions);
-      setCurrentQuestionIndex(0);
-      setUserAnswers([]);
-      setLevelComplete(false);
-      setProgressInLevel(0);
-    }
-  }, [topic, questions, currentLevel]);
+    };
+
+    fetchQuestions();
+  }, [topic, currentLevel, quizSetup]);
 
   // Function to update XP and handle rank progression/demotion
   const updateXP = (amount: number) => {
@@ -401,29 +519,13 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
     // Check if user has completed all questions correctly for the current level
     if (correctAnswers === QUESTIONS_PER_LEVEL) {
       setLevelComplete(true);
-      
-      // Award appropriate badge based on level
-      switch (currentLevel) {
-        case 'unranked':
-          if (!earnedBadges.includes('Unranked Badge')) {
-            awardBadge('Unranked Badge');
-          }
-          break;
-        case 'bronze':
-          if (!earnedBadges.includes('Bronze Badge')) {
-            awardBadge('Bronze Badge');
-          }
-          break;
-        case 'silver':
-          if (!earnedBadges.includes('Silver Badge')) {
-            awardBadge('Silver Badge');
-          }
-          break;
-        case 'gold':
-          if (!earnedBadges.includes('Gold Badge')) {
-            awardBadge('Gold Badge');
-          }
-          break;
+      // Award all badges up to and including the current level
+      const badgeOrder: Badge[] = ['Unranked Badge', 'Bronze Badge', 'Silver Badge', 'Gold Badge'];
+      const currentLevelIndex = badgeOrder.findIndex(badge => badge.toLowerCase().includes(currentLevel));
+      for (let i = 0; i <= currentLevelIndex; i++) {
+        if (!earnedBadges.includes(badgeOrder[i])) {
+          awardBadge(badgeOrder[i]);
+        }
       }
     }
   };
@@ -469,32 +571,6 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
   const goToPreviousQuestion = () => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
-    }
-  };
-
-  const answerQuestion = (answer: string) => {
-    if (currentQuestionIndex < filteredQuestions.length) {
-      const newAnswers = [...userAnswers];
-      newAnswers[currentQuestionIndex] = answer;
-      setUserAnswers(newAnswers);
-
-      // Check if answer is correct and update XP
-      const isCorrect = answer === filteredQuestions[currentQuestionIndex]?.correctAnswer;
-      updateXP(isCorrect ? XP_REWARDS.correct : XP_REWARDS.incorrect);
-      
-      // Update streak
-      if (isCorrect) {
-        const newStreak = streak + 1;
-        setStreak(newStreak);
-        if (newStreak > maxStreak) {
-          setMaxStreak(newStreak);
-        }
-      } else {
-        setStreak(0);
-      }
-
-      // Check level progression or completion
-      checkLevelProgressionOrCompletion();
     }
   };
 
@@ -631,12 +707,13 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
       value={{
         questions: filteredQuestions,
         currentQuestionIndex,
+        currentQuestion,
         userAnswers,
         score,
         setQuestions,
         goToNextQuestion,
         goToPreviousQuestion,
-        answerQuestion,
+        submitAnswer,
         resetQuiz,
         isQuizCompleted,
         calculateScore,
@@ -667,6 +744,12 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
         xpToNextLevel,
         updateXP,
         saveCurrentLevelProgress,
+        showLevelUpPopup,
+        setShowLevelUpPopup,
+        quizSetup,
+        setQuizSetup,
+        isLoading,
+        setIsLoading,
       }}
     >
       {children}
