@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "skill": "HTML",
+    "industry": "Technology",
+    "role": "Software Development",
+    "cluster": "Web Development",
+    "level": "Bronze",
+    "generatedAt": "2025-06-14T10:59:44.634Z",
+    "savedAt": "2025-06-14T10:59:44.634Z"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does HTML stand for?",
+      "options": [
+        "Hypertext Markup Language",
+        "Hyperlinks and Text Markup Language",
+        "Home Tool Markup Language",
+        "Hyper Text Managing Language"
+      ],
+      "correctAnswer": "Hypertext Markup Language",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 2,
+      "question": "Which tag is used to define an image in HTML?",
+      "options": [
+        "<img>",
+        "<src>",
+        "<image>",
+        "<picture>"
+      ],
+      "correctAnswer": "<img>",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 3,
+      "question": "What is the correct way to create a hyperlink in HTML?",
+      "options": [
+        "<a href='http://www.example.com'>Click here</a>",
+        "<link url='http://www.example.com'>Click here</link>",
+        "<hyperlink>http://www.example.com</hyperlink>",
+        "<link>http://www.example.com</link>"
+      ],
+      "correctAnswer": "<a href='http://www.example.com'>Click here</a>",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 4,
+      "question": "Which element is used to define the structure of an HTML document?",
+      "options": [
+        "<body>",
+        "<header>",
+        "<html>",
+        "<div>"
+      ],
+      "correctAnswer": "<html>",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 5,
+      "question": "What does the <p> tag represent in HTML?",
+      "options": [
+        "paragraph",
+        "line break",
+        "heading",
+        "image"
+      ],
+      "correctAnswer": "paragraph",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 6,
+      "question": "Which attribute is used to provide additional information about an element in HTML?",
+      "options": [
+        "class",
+        "src",
+        "id",
+        "alt"
+      ],
+      "correctAnswer": "class",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 7,
+      "question": "In HTML, which tag is used to create a numbered list?",
+      "options": [
+        "<ul>",
+        "<li>",
+        "<ol>",
+        "<list>"
+      ],
+      "correctAnswer": "<ol>",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 8,
+      "question": "What is the correct way to add a comment in HTML?",
+      "options": [
+        "<!--This is a comment-->",
+        "//This is a comment",
+        "/*This is a comment*/",
+        "#This is a comment"
+      ],
+      "correctAnswer": "<!--This is a comment-->",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 9,
+      "question": "Which tag is used to define a table in HTML?",
+      "options": [
+        "<table>",
+        "<tr>",
+        "<td>",
+        "<th>"
+      ],
+      "correctAnswer": "<table>",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 10,
+      "question": "What does the <input> tag represent in HTML?",
+      "options": [
+        "image",
+        "button",
+        "input field",
+        "checkbox"
+      ],
+      "correctAnswer": "input field",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    }
+  ]
+}

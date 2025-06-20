@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "skill": "HTML",
+    "industry": "Technology",
+    "role": "Software Development",
+    "cluster": "Web Development",
+    "level": "Bronze",
+    "generatedAt": "2025-06-14T10:42:41.130Z",
+    "savedAt": "2025-06-14T10:42:41.130Z"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does HTML stand for?",
+      "options": [
+        "Hyper Text Markup Language",
+        "Highly Typed Machine Learning",
+        "Home Tool Management Language",
+        "Hyperlink and Text Management"
+      ],
+      "correctAnswer": "Hyper Text Markup Language",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 2,
+      "question": "Which tag is used to define an image in HTML?",
+      "options": [
+        "<img>",
+        "<image>",
+        "<picture>",
+        "<src>"
+      ],
+      "correctAnswer": "<img>",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 3,
+      "question": "What is the correct way to create a hyperlink in HTML?",
+      "options": [
+        "<a href='http://www.example.com'>Click here</a>",
+        "<link src='http://www.example.com'>Click here</link>",
+        "<hyperlink>http://www.example.com</hyperlink>",
+        "<url>http://www.example.com</url>"
+      ],
+      "correctAnswer": "<a href='http://www.example.com'>Click here</a>",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 4,
+      "question": "Which tag is used to define a paragraph in HTML?",
+      "options": [
+        "<p>",
+        "<para>",
+        "<paragraph>",
+        "<text>"
+      ],
+      "correctAnswer": "<p>",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 5,
+      "question": "What does the <div> tag represent in HTML?",
+      "options": [
+        "A division or section in the document",
+        "A hyperlink",
+        "A list item",
+        "A table"
+      ],
+      "correctAnswer": "A division or section in the document",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 6,
+      "question": "Which tag is used to create an unordered list in HTML?",
+      "options": [
+        "<ol>",
+        "<list>",
+        "<unordered>",
+        "<ul>"
+      ],
+      "correctAnswer": "<ul>",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 7,
+      "question": "In HTML, what is the correct tag for the largest heading?",
+      "options": [
+        "<heading>",
+        "<h1>",
+        "<h6>",
+        "<header>"
+      ],
+      "correctAnswer": "<h1>",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 8,
+      "question": "Which attribute is used to specify a unique identifier for an element in HTML?",
+      "options": [
+        "id",
+        "class",
+        "name",
+        "style"
+      ],
+      "correctAnswer": "id",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 9,
+      "question": "What does the <br> tag do in HTML?",
+      "options": [
+        "Creates a line break",
+        "Creates a bold text",
+        "Creates a new paragraph",
+        "Creates a link"
+      ],
+      "correctAnswer": "Creates a line break",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 10,
+      "question": "Which tag is used to define a table in HTML?",
+      "options": [
+        "<table>",
+        "<tab>",
+        "<tr>",
+        "<tbl>"
+      ],
+      "correctAnswer": "<table>",
+      "topic": "html",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    }
+  ]
+}

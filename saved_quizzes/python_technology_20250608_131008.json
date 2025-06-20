@@ -1,0 +1,19 @@
+{
+  "quiz_metadata": {
+    "skill": "Python",
+    "industry": "Technology",
+    "total_questions": 1
+  },
+  "questions": [
+    {
+      "question": "What is Python?",
+      "options": [
+        "A programming language",
+        "A snake",
+        "A bird",
+        "A food"
+      ],
+      "correctAnswer": "A programming language"
+    }
+  ]
+}

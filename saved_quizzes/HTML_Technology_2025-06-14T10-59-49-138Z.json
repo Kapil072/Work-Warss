@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "skill": "HTML",
+    "industry": "Technology",
+    "role": "Software Development",
+    "cluster": "Web Development",
+    "level": "Unranked",
+    "generatedAt": "2025-06-14T10:59:49.138Z",
+    "savedAt": "2025-06-14T10:59:49.138Z"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does HTML stand for?",
+      "options": [
+        "Hyper Text Markup Language",
+        "Highly Technological Machine Learning",
+        "Home Tool Management Language",
+        "Hyperlink and Text Management Language"
+      ],
+      "correctAnswer": "Hyper Text Markup Language",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 2,
+      "question": "Which tag is used to define an image in HTML?",
+      "options": [
+        "<img>",
+        "<picture>",
+        "<image>",
+        "<src>"
+      ],
+      "correctAnswer": "<img>",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 3,
+      "question": "What is the correct way to create a hyperlink in HTML?",
+      "options": [
+        "<a href='link'>Click here</a>",
+        "<link>Click here</link>",
+        "<href link='url'>Click here</href>",
+        "<hyperlink>Click here</hyperlink>"
+      ],
+      "correctAnswer": "<a href='link'>Click here</a>",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 4,
+      "question": "Which HTML tag is used to define a paragraph?",
+      "options": [
+        "<para>",
+        "<text>",
+        "<p>",
+        "<paragraph>"
+      ],
+      "correctAnswer": "<p>",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 5,
+      "question": "What tag is used to create a numbered list in HTML?",
+      "options": [
+        "<list>",
+        "<ul>",
+        "<ol>",
+        "<li>"
+      ],
+      "correctAnswer": "<ol>",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 6,
+      "question": "Which of the following is NOT a valid HTML color name?",
+      "options": [
+        "Red",
+        "Lime",
+        "Turquoise",
+        "Magenta"
+      ],
+      "correctAnswer": "Turquoise",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 7,
+      "question": "In HTML, which tag is used to define a table row?",
+      "options": [
+        "<tr>",
+        "<table>",
+        "<th>",
+        "<td>"
+      ],
+      "correctAnswer": "<tr>",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 8,
+      "question": "What does the HTML attribute 'href' do?",
+      "options": [
+        "Defines the heading of a document",
+        "Specifies the URL of a link",
+        "Sets the background color of an element",
+        "Adds a border around an image"
+      ],
+      "correctAnswer": "Specifies the URL of a link",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 9,
+      "question": "Which tag is used to create a line break in HTML?",
+      "options": [
+        "<br>",
+        "<lb>",
+        "<break>",
+        "<newline>"
+      ],
+      "correctAnswer": "<br>",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 10,
+      "question": "Which tag is used to make text bold in HTML?",
+      "options": [
+        "<bold>",
+        "<strong>",
+        "<b>",
+        "<em>"
+      ],
+      "correctAnswer": "<b>",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    }
+  ]
+}

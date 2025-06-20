@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "skill": "HTML",
+    "industry": "Technology",
+    "role": "Software Development",
+    "cluster": "Web Development",
+    "level": "Unranked",
+    "generatedAt": "2025-06-14T10:42:48.728Z",
+    "savedAt": "2025-06-14T10:42:48.728Z"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does HTML stand for?",
+      "options": [
+        "Hyper Text Markup Language",
+        "Highly Technical Modern Language",
+        "Home Tool Markup Language",
+        "Hyperlink and Text Markup Language"
+      ],
+      "correctAnswer": "Hyper Text Markup Language",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 2,
+      "question": "Which tag is used to define an unordered list in HTML?",
+      "options": [
+        "<ol>",
+        "<dl>",
+        "<ul>",
+        "<list>"
+      ],
+      "correctAnswer": "<ul>",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 3,
+      "question": "What is the correct HTML element for inserting a line break?",
+      "options": [
+        "<lb>",
+        "<break>",
+        "<br>",
+        "<line>"
+      ],
+      "correctAnswer": "<br>",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 4,
+      "question": "In HTML, which attribute is used to specify a unique identifier for an element?",
+      "options": [
+        "class",
+        "id",
+        "name",
+        "style"
+      ],
+      "correctAnswer": "id",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 5,
+      "question": "Which HTML tag is used to define the structure of an HTML document?",
+      "options": [
+        "<body>",
+        "<head>",
+        "<html>",
+        "<title>"
+      ],
+      "correctAnswer": "<html>",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 6,
+      "question": "What is the correct way to comment out code in HTML?",
+      "options": [
+        "<!--This is a comment-->",
+        "//This is a comment",
+        "/*This is a comment*/",
+        "<!--This is a comment>"
+      ],
+      "correctAnswer": "<!--This is a comment-->",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 7,
+      "question": "Which tag is used to create a hyperlink in HTML?",
+      "options": [
+        "<a>",
+        "<link>",
+        "<href>",
+        "<hyper>"
+      ],
+      "correctAnswer": "<a>",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 8,
+      "question": "What is the correct HTML for adding a background color?",
+      "options": [
+        "<background>",
+        "<color>",
+        "<bgcolor>",
+        "<style>"
+      ],
+      "correctAnswer": "<style>",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 9,
+      "question": "Which HTML attribute is used to define inline styles?",
+      "options": [
+        "font",
+        "styles",
+        "class",
+        "style"
+      ],
+      "correctAnswer": "style",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    },
+    {
+      "id": 10,
+      "question": "What does the <img> tag define in HTML?",
+      "options": [
+        "a clickable image",
+        "an image map",
+        "an image",
+        "an image link"
+      ],
+      "correctAnswer": "an image",
+      "topic": "html",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about HTML in the context of Technology."
+    }
+  ]
+}

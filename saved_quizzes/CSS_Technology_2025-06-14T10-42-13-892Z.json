@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "skill": "CSS",
+    "industry": "Technology",
+    "role": "Software Development",
+    "cluster": "Web Development",
+    "level": "Unranked",
+    "generatedAt": "2025-06-14T10:42:13.892Z",
+    "savedAt": "2025-06-14T10:42:13.892Z"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does CSS stand for?",
+      "options": [
+        "Computer Style Sheets",
+        "Creative Style Sheets",
+        "Cascading Style Sheets",
+        "Colorful Style Sheets"
+      ],
+      "correctAnswer": "Cascading Style Sheets",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 2,
+      "question": "Which property is used to change the text color of an element?",
+      "options": [
+        "font-style",
+        "text-color",
+        "color",
+        "text-decoration"
+      ],
+      "correctAnswer": "color",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 3,
+      "question": "What is the correct CSS syntax to select an element by its ID?",
+      "options": [
+        "#idName",
+        ".idName",
+        "idName",
+        "*idName"
+      ],
+      "correctAnswer": "#idName",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 4,
+      "question": "Which CSS property is used to control the spacing between elements?",
+      "options": [
+        "padding",
+        "margin",
+        "spacing",
+        "border"
+      ],
+      "correctAnswer": "margin",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 5,
+      "question": "In CSS, which property is used to change the font of an element?",
+      "options": [
+        "text-font",
+        "font-style",
+        "font-family",
+        "text-family"
+      ],
+      "correctAnswer": "font-family",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 6,
+      "question": "What does the 'box-sizing' property in CSS control?",
+      "options": [
+        "Element shape",
+        "Element position",
+        "Element size calculation",
+        "Element visibility"
+      ],
+      "correctAnswer": "Element size calculation",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 7,
+      "question": "Which CSS selector is more specific: class or ID?",
+      "options": [
+        ".class",
+        "#id",
+        "Both are equally specific",
+        "It depends on the context"
+      ],
+      "correctAnswer": "#id",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 8,
+      "question": "What does the 'display: flex;' property do in CSS?",
+      "options": [
+        "Centers the element",
+        "Applies a gradient effect",
+        "Creates a flexible box layout",
+        "Increases font size"
+      ],
+      "correctAnswer": "Creates a flexible box layout",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 9,
+      "question": "Which CSS property is used to add shadows to elements?",
+      "options": [
+        "text-shadow",
+        "box-shadow",
+        "element-shadow",
+        "shadow-effect"
+      ],
+      "correctAnswer": "box-shadow",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 10,
+      "question": "What is the correct way to include an external CSS file in an HTML document?",
+      "options": [
+        "<css src='styles.css'>",
+        "<link rel='stylesheet' href='styles.css'>",
+        "<style src='styles.css'>",
+        "<script src='styles.css'>"
+      ],
+      "correctAnswer": "<link rel='stylesheet' href='styles.css'>",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    }
+  ]
+}

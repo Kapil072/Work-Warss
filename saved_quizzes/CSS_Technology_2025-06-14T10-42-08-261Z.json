@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "skill": "CSS",
+    "industry": "Technology",
+    "role": "Software Development",
+    "cluster": "Web Development",
+    "level": "Bronze",
+    "generatedAt": "2025-06-14T10:42:08.261Z",
+    "savedAt": "2025-06-14T10:42:08.261Z"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does CSS stand for?",
+      "options": [
+        "Computer Style Sheets",
+        "Cascading Style Scripts",
+        "Creative Style Sheets",
+        "Cascading Style Sheets"
+      ],
+      "correctAnswer": "Cascading Style Sheets",
+      "topic": "css",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 2,
+      "question": "Which property is used to change the text color of an element?",
+      "options": [
+        "font-style",
+        "text-color",
+        "color",
+        "font-color"
+      ],
+      "correctAnswer": "color",
+      "topic": "css",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 3,
+      "question": "What is the correct CSS syntax to select an element by its ID?",
+      "options": [
+        "#example",
+        ".example",
+        "*example",
+        "&example"
+      ],
+      "correctAnswer": "#example",
+      "topic": "css",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 4,
+      "question": "Which property is used to set the background color of an element?",
+      "options": [
+        "background-color",
+        "color",
+        "background-style",
+        "background"
+      ],
+      "correctAnswer": "background-color",
+      "topic": "css",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 5,
+      "question": "What does the 'margin: 0 auto;' CSS rule do?",
+      "options": [
+        "Adds a margin of 0 to all sides",
+        "Centers the element horizontally",
+        "Sets the margin to auto",
+        "Applies a margin to the top and bottom only"
+      ],
+      "correctAnswer": "Centers the element horizontally",
+      "topic": "css",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 6,
+      "question": "Which CSS property is used to control the spacing between elements?",
+      "options": [
+        "padding",
+        "margin",
+        "spacing",
+        "gap"
+      ],
+      "correctAnswer": "margin",
+      "topic": "css",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 7,
+      "question": "In CSS, which unit is relative to the font-size of the root element?",
+      "options": [
+        "px",
+        "em",
+        "%",
+        "rem"
+      ],
+      "correctAnswer": "rem",
+      "topic": "css",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 8,
+      "question": "What is the correct CSS syntax to apply the same style to multiple elements?",
+      "options": [
+        "element1, element2 { ... }",
+        "element1 + element2 { ... }",
+        "element1 > element2 { ... }",
+        "element1 ~ element2 { ... }"
+      ],
+      "correctAnswer": "element1, element2 { ... }",
+      "topic": "css",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 9,
+      "question": "Which property is used to make text bold in CSS?",
+      "options": [
+        "font-weight",
+        "text-bold",
+        "bold",
+        "font-style"
+      ],
+      "correctAnswer": "font-weight",
+      "topic": "css",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 10,
+      "question": "What does the 'display: none;' CSS rule do?",
+      "options": [
+        "Hides the element",
+        "Displays the element as a block",
+        "Displays the element as inline",
+        "Makes the element transparent"
+      ],
+      "correctAnswer": "Hides the element",
+      "topic": "css",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    }
+  ]
+}

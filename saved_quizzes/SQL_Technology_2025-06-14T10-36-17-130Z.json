@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "skill": "SQL",
+    "industry": "Technology",
+    "role": "Data Science",
+    "cluster": "Data Engineering",
+    "level": "Unranked",
+    "generatedAt": "2025-06-14T10:36:17.130Z",
+    "savedAt": "2025-06-14T10:36:17.130Z"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does SQL stand for?",
+      "options": [
+        "Structured Programming Language",
+        "Sequential Query Language",
+        "Standard Query Language",
+        "System Query Language"
+      ],
+      "correctAnswer": "Standard Query Language",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 2,
+      "question": "Which SQL keyword is used to retrieve data from a database?",
+      "options": [
+        "SELECT",
+        "FETCH",
+        "EXTRACT",
+        "COLLECT"
+      ],
+      "correctAnswer": "SELECT",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 3,
+      "question": "In SQL, which clause is used to filter records?",
+      "options": [
+        "FILTER BY",
+        "RESTRICT",
+        "CONDITION",
+        "WHERE"
+      ],
+      "correctAnswer": "WHERE",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 4,
+      "question": "What is the SQL keyword used to create a new table?",
+      "options": [
+        "ADD TABLE",
+        "CREATE TABLE",
+        "INSERT TABLE",
+        "DEFINE TABLE"
+      ],
+      "correctAnswer": "CREATE TABLE",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 5,
+      "question": "Which SQL data type would you use for a date and time field?",
+      "options": [
+        "DATETIME",
+        "STRING",
+        "INTEGER",
+        "DECIMAL"
+      ],
+      "correctAnswer": "DATETIME",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 6,
+      "question": "In SQL, which operator is used for pattern matching?",
+      "options": [
+        "LIKE",
+        "MATCH",
+        "FIND",
+        "COMPARE"
+      ],
+      "correctAnswer": "LIKE",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 7,
+      "question": "What SQL statement is used to delete rows from a table?",
+      "options": [
+        "REMOVE",
+        "ERASE",
+        "DELETE",
+        "DROP"
+      ],
+      "correctAnswer": "DELETE",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 8,
+      "question": "In SQL, which function is used to calculate the average value?",
+      "options": [
+        "AVG()",
+        "AVERAGE()",
+        "MEAN()",
+        "CALCULATE()"
+      ],
+      "correctAnswer": "AVG()",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 9,
+      "question": "Which SQL command is used to make permanent changes to the database?",
+      "options": [
+        "COMMIT",
+        "SAVE",
+        "APPLY",
+        "CONFIRM"
+      ],
+      "correctAnswer": "COMMIT",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 10,
+      "question": "What SQL statement is used to sort the result set in ascending order?",
+      "options": [
+        "ORDER DESC",
+        "SORT ASC",
+        "ASCENDING",
+        "ORDER BY"
+      ],
+      "correctAnswer": "ORDER BY",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    }
+  ]
+}

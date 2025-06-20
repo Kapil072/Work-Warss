@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "skill": "CSS",
+    "industry": "Technology",
+    "role": "Software Development",
+    "cluster": "Web Development",
+    "level": "Unranked",
+    "generatedAt": "2025-06-14T10:42:13.174Z",
+    "savedAt": "2025-06-14T10:42:13.174Z"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does CSS stand for?",
+      "options": [
+        "Computer Style Sheets",
+        "Creative Style Sheets",
+        "Cascading Style Sheets",
+        "Colorful Style Sheets"
+      ],
+      "correctAnswer": "Cascading Style Sheets",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 2,
+      "question": "Which property is used to change the text color of an element in CSS?",
+      "options": [
+        "font-family",
+        "text-style",
+        "color",
+        "text-color"
+      ],
+      "correctAnswer": "color",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 3,
+      "question": "In CSS, which property is used to control the spacing between elements?",
+      "options": [
+        "margin",
+        "padding",
+        "spacing",
+        "border"
+      ],
+      "correctAnswer": "margin",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 4,
+      "question": "What is the correct way to include an external CSS file in an HTML document?",
+      "options": [
+        "<css src='styles.css'>",
+        "<link rel='stylesheet' type='text/css' href='styles.css'>",
+        "<style src='styles.css'>",
+        "<script src='styles.css'>"
+      ],
+      "correctAnswer": "<link rel='stylesheet' type='text/css' href='styles.css'>",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 5,
+      "question": "Which CSS property is used to make text bold?",
+      "options": [
+        "text-weight",
+        "font-weight",
+        "bold",
+        "text-bold"
+      ],
+      "correctAnswer": "font-weight",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 6,
+      "question": "What does the 'box-sizing' property in CSS control?",
+      "options": [
+        "Element positioning",
+        "Box model behavior",
+        "Text alignment",
+        "Background color"
+      ],
+      "correctAnswer": "Box model behavior",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 7,
+      "question": "Which CSS selector would target all <p> elements with a class of 'intro'?",
+      "options": [
+        ".intro p",
+        "p.intro",
+        "intro p",
+        "#intro p"
+      ],
+      "correctAnswer": "p.intro",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 8,
+      "question": "What is the default value of the 'position' property in CSS?",
+      "options": [
+        "static",
+        "relative",
+        "absolute",
+        "fixed"
+      ],
+      "correctAnswer": "static",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 9,
+      "question": "Which CSS property is used to create rounded corners?",
+      "options": [
+        "border-radius",
+        "corner-radius",
+        "rounded-corners",
+        "box-radius"
+      ],
+      "correctAnswer": "border-radius",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    },
+    {
+      "id": 10,
+      "question": "In CSS, what is the purpose of the 'z-index' property?",
+      "options": [
+        "Controls the element's transparency",
+        "Sets the element's width",
+        "Defines the stacking order of elements",
+        "Changes the element's font size"
+      ],
+      "correctAnswer": "Defines the stacking order of elements",
+      "topic": "css",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about CSS in the context of Technology."
+    }
+  ]
+}

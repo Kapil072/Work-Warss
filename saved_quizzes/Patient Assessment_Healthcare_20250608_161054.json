@@ -1,0 +1,152 @@
+{
+  "metadata": {
+    "skill": "Patient Assessment",
+    "industry": "Healthcare",
+    "role": "Doctor",
+    "cluster": "Patient Care",
+    "level": "Unranked",
+    "timestamp": "20250608_161054"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the first step in a patient assessment?",
+      "options": [
+        "Performing a physical exam",
+        "Ordering diagnostic tests",
+        "Gathering the patient's history",
+        "Administering medication"
+      ],
+      "correctAnswer": "Gathering the patient's history",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "Gathering the patient's history (including chief complaint, present illness, past medical history, family history, social history, and review of systems) is crucial for establishing a preliminary diagnosis and guiding further assessment."
+    },
+    {
+      "id": 2,
+      "question": "Which vital sign is typically measured first?",
+      "options": [
+        "Temperature",
+        "Blood pressure",
+        "Heart rate",
+        "Respiratory rate"
+      ],
+      "correctAnswer": "Heart rate",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "While the order can vary slightly, assessing heart rate is often the first vital sign checked, providing immediate information about the patient's cardiovascular status."
+    },
+    {
+      "id": 3,
+      "question": "What does PERRL stand for in neurological assessment?",
+      "options": [
+        "Pupils Equally Round, Reactive to Light",
+        "Pupils Equal, Round, Reactive to Light",
+        "Pupils Equal, Reactive, Round to Light",
+        "Pupils Equally Reactive, Round, Light"
+      ],
+      "correctAnswer": "Pupils Equal, Round, Reactive to Light",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "PERRL is a common abbreviation used to document normal pupil findings during a neurological exam."
+    },
+    {
+      "id": 4,
+      "question": "A patient presents with shortness of breath. Which system should be assessed first?",
+      "options": [
+        "Gastrointestinal",
+        "Neurological",
+        "Cardiovascular",
+        "Musculoskeletal"
+      ],
+      "correctAnswer": "Cardiovascular",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "Shortness of breath (dyspnea) is a common symptom of cardiovascular issues, and assessing this system is crucial to identify potential life-threatening conditions."
+    },
+    {
+      "id": 5,
+      "question": "What is the purpose of assessing a patient's skin?",
+      "options": [
+        "To assess for hydration only",
+        "To assess for temperature and hydration only",
+        "To assess for temperature, hydration, and skin lesions",
+        "To assess for temperature only"
+      ],
+      "correctAnswer": "To assess for temperature, hydration, and skin lesions",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "Skin assessment provides valuable information about the patient's overall health, including hydration status, temperature, and the presence of any lesions or rashes."
+    },
+    {
+      "id": 6,
+      "question": "Which of the following is NOT a component of a general survey?",
+      "options": [
+        "Mental status",
+        "Appearance",
+        "Vital signs",
+        "Detailed neurological exam"
+      ],
+      "correctAnswer": "Detailed neurological exam",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "A general survey is a quick overall assessment of the patient, while a detailed neurological exam is a more focused assessment."
+    },
+    {
+      "id": 7,
+      "question": "What does the acronym OPQRST stand for in pain assessment?",
+      "options": [
+        "Onset, Provocation, Quality, Radiation, Severity, Time",
+        "Onset, Position, Quality, Radiation, Severity, Treatment",
+        "Onset, Provocation, Quality, Region, Severity, Time",
+        "Onset, Pain, Quality, Radiation, Severity, Treatment"
+      ],
+      "correctAnswer": "Onset, Provocation, Quality, Radiation, Severity, Time",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "OPQRST is a mnemonic used to guide a thorough pain assessment."
+    },
+    {
+      "id": 8,
+      "question": "A patient reports chest pain. What is the most appropriate immediate action?",
+      "options": [
+        "Order an EKG",
+        "Give aspirin",
+        "Assess vital signs and oxygen saturation",
+        "Begin CPR"
+      ],
+      "correctAnswer": "Assess vital signs and oxygen saturation",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "Before ordering any tests or administering medications, it's crucial to assess the patient's vital signs and oxygen saturation to determine the severity of the situation."
+    },
+    {
+      "id": 9,
+      "question": "What is the significance of assessing a patient's level of consciousness?",
+      "options": [
+        "It only helps determine if the patient is alert",
+        "It helps determine the patient's overall neurological function",
+        "It is only important in trauma cases",
+        "It is not a vital part of the initial assessment"
+      ],
+      "correctAnswer": "It helps determine the patient's overall neurological function",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "Assessing the level of consciousness is a crucial indicator of neurological function and overall health status."
+    },
+    {
+      "id": 10,
+      "question": "During a patient interview, the patient seems hesitant to disclose certain information.  What is the best approach?",
+      "options": [
+        "Push the patient to answer immediately",
+        "Ignore the hesitation and move to the next question",
+        "Create a safe and trusting environment and allow the patient to disclose information at their own pace",
+        "Tell the patient that their hesitation is delaying treatment"
+      ],
+      "correctAnswer": "Create a safe and trusting environment and allow the patient to disclose information at their own pace",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "Building rapport and trust is essential for obtaining accurate and complete information from patients.  Pressuring them can hinder communication."
+    }
+  ]
+}

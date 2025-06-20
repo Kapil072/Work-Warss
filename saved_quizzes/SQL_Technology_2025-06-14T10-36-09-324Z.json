@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "skill": "SQL",
+    "industry": "Technology",
+    "role": "Data Science",
+    "cluster": "Data Engineering",
+    "level": "Bronze",
+    "generatedAt": "2025-06-14T10:36:09.324Z",
+    "savedAt": "2025-06-14T10:36:09.324Z"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does SQL stand for?",
+      "options": [
+        "Structured Query Language",
+        "Sequential Query Language",
+        "Standard Query Language",
+        "System Query Language"
+      ],
+      "correctAnswer": "Structured Query Language",
+      "topic": "sql",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 2,
+      "question": "Which SQL keyword is used to retrieve data from a database?",
+      "options": [
+        "SELECT",
+        "EXTRACT",
+        "RETRIEVE",
+        "SEARCH"
+      ],
+      "correctAnswer": "SELECT",
+      "topic": "sql",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 3,
+      "question": "In SQL, which statement is used to update data in a database?",
+      "options": [
+        "MODIFY",
+        "UPDATE",
+        "CHANGE",
+        "SET"
+      ],
+      "correctAnswer": "UPDATE",
+      "topic": "sql",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 4,
+      "question": "What does the SQL WHERE clause do?",
+      "options": [
+        "Filters results based on conditions",
+        "Sorts results in ascending order",
+        "Joins multiple tables",
+        "Groups data"
+      ],
+      "correctAnswer": "Filters results based on conditions",
+      "topic": "sql",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 5,
+      "question": "Which SQL command is used to remove a table from the database?",
+      "options": [
+        "REMOVE TABLE",
+        "DELETE TABLE",
+        "DROP TABLE",
+        "ERASE TABLE"
+      ],
+      "correctAnswer": "DROP TABLE",
+      "topic": "sql",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 6,
+      "question": "What is the purpose of SQL JOIN?",
+      "options": [
+        "Combine rows from two or more tables based on a related column",
+        "Create a new database",
+        "Delete duplicate records",
+        "Update existing records"
+      ],
+      "correctAnswer": "Combine rows from two or more tables based on a related column",
+      "topic": "sql",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 7,
+      "question": "Which SQL data type is used to store a date and time value?",
+      "options": [
+        "DATETIME",
+        "STRING",
+        "INTEGER",
+        "DECIMAL"
+      ],
+      "correctAnswer": "DATETIME",
+      "topic": "sql",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 8,
+      "question": "What does the SQL ORDER BY clause do?",
+      "options": [
+        "Sorts the result set in ascending or descending order",
+        "Filters the result set based on conditions",
+        "Groups the result set",
+        "Performs arithmetic operations"
+      ],
+      "correctAnswer": "Sorts the result set in ascending or descending order",
+      "topic": "sql",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 9,
+      "question": "Which SQL function is used to count the number of rows in a database table?",
+      "options": [
+        "SUM()",
+        "COUNT()",
+        "MAX()",
+        "AVG()"
+      ],
+      "correctAnswer": "COUNT()",
+      "topic": "sql",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 10,
+      "question": "In SQL, which statement is used to insert new data into a database table?",
+      "options": [
+        "ADD",
+        "INSERT",
+        "CREATE",
+        "APPEND"
+      ],
+      "correctAnswer": "INSERT",
+      "topic": "sql",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    }
+  ]
+}

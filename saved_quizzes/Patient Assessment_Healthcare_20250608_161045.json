@@ -1,0 +1,152 @@
+{
+  "metadata": {
+    "skill": "Patient Assessment",
+    "industry": "Healthcare",
+    "role": "Doctor",
+    "cluster": "Patient Care",
+    "level": "Unranked",
+    "timestamp": "20250608_161045"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the first and most crucial step in patient assessment?",
+      "options": [
+        "Ordering diagnostic tests",
+        "Reviewing the patient's chart",
+        "Performing a physical examination",
+        "Establishing rapport and obtaining a history"
+      ],
+      "correctAnswer": "Establishing rapport and obtaining a history",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "Building trust and understanding the patient's concerns is fundamental before proceeding with other assessments."
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is NOT a vital sign?",
+      "options": [
+        "Blood pressure",
+        "Temperature",
+        "Pupil reactivity",
+        "Heart rate"
+      ],
+      "correctAnswer": "Pupil reactivity",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "While pupil reactivity is an important neurological assessment, it's not considered a standard vital sign."
+    },
+    {
+      "id": 3,
+      "question": "What does the acronym SAMPLE stand for in the context of patient history?",
+      "options": [
+        "Symptoms, Allergies, Medications, Past medical history, Last meal, Events leading to illness",
+        "Signs, Allergies, Medications, Past medical history, Location, Events leading to illness",
+        "Symptoms, Allergies, Medications, Past medical history, Last meal, Environment",
+        "Signs, Allergies, Medications, Past medical history, Location, Examination"
+      ],
+      "correctAnswer": "Symptoms, Allergies, Medications, Past medical history, Last meal, Events leading to illness",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "SAMPLE is a mnemonic used to gather essential information during a patient interview."
+    },
+    {
+      "id": 4,
+      "question": "A patient presents with shortness of breath.  Which system should you prioritize assessing first?",
+      "options": [
+        "Gastrointestinal",
+        "Musculoskeletal",
+        "Respiratory",
+        "Neurological"
+      ],
+      "correctAnswer": "Respiratory",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "Shortness of breath is a primary symptom indicating a respiratory issue, requiring immediate attention."
+    },
+    {
+      "id": 5,
+      "question": "What is the correct order for assessing the abdomen?",
+      "options": [
+        "Auscultation, Percussion, Palpation, Inspection",
+        "Inspection, Auscultation, Percussion, Palpation",
+        "Palpation, Inspection, Auscultation, Percussion",
+        "Percussion, Auscultation, Palpation, Inspection"
+      ],
+      "correctAnswer": "Inspection, Auscultation, Percussion, Palpation",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "This order prevents altering bowel sounds (auscultation) from palpation or percussion."
+    },
+    {
+      "id": 6,
+      "question": "Which of these is a subjective finding during patient assessment?",
+      "options": [
+        "Elevated heart rate",
+        "Decreased oxygen saturation",
+        "Patient reports chest pain",
+        "Abnormal lung sounds"
+      ],
+      "correctAnswer": "Patient reports chest pain",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "Subjective findings are based on patient reports, while objective findings are measurable and observable."
+    },
+    {
+      "id": 7,
+      "question": "During a neurological assessment, what does PERRLA stand for?",
+      "options": [
+        "Pupils Equal, Round, Reactive to Light, Accommodation",
+        "Pupils Equal, Regular, Reactive to Light, Accommodation",
+        "Pupils Enlarged, Round, Reactive to Light, Accommodation",
+        "Pupils Equal, Round, Reactive to Light, Alertness"
+      ],
+      "correctAnswer": "Pupils Equal, Round, Reactive to Light, Accommodation",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "PERRLA is a common acronym used to document pupil assessment findings."
+    },
+    {
+      "id": 8,
+      "question": "A patient complains of severe headache.  What additional information is crucial to gather?",
+      "options": [
+        "Favorite color",
+        "Recent travel history",
+        "Dietary habits",
+        "Shoe size"
+      ],
+      "correctAnswer": "Recent travel history",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "Headaches can be a symptom of various conditions, and travel history can be relevant to certain infections."
+    },
+    {
+      "id": 9,
+      "question": "What is the most important consideration when assessing an elderly patient?",
+      "options": [
+        "Their ability to follow instructions",
+        "Their financial status",
+        "Their past medical history and potential comorbidities",
+        "Their living situation"
+      ],
+      "correctAnswer": "Their past medical history and potential comorbidities",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "Older adults often have multiple health issues that can influence their current presentation."
+    },
+    {
+      "id": 10,
+      "question": "A patient is unresponsive. What is the first step in assessing their condition?",
+      "options": [
+        "Check for a pulse",
+        "Check breathing and airway",
+        "Check for injuries",
+        "Call for help"
+      ],
+      "correctAnswer": "Check breathing and airway",
+      "topic": "patient assessment",
+      "difficulty": "Unranked",
+      "explanation": "Airway and breathing are priorities in an unresponsive patient to ensure oxygenation."
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "skill": "Financial Modeling",
+    "industry": "Finance",
+    "role": "Investment Banking",
+    "cluster": "Financial Analysis",
+    "level": "Bronze",
+    "generatedAt": "2025-06-14T10:50:46.115Z",
+    "savedAt": "2025-06-14T10:50:46.115Z"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the formula to calculate Net Income?",
+      "options": [
+        "Gross Revenue - Cost of Goods Sold",
+        "Operating Income - Interest Expense",
+        "Revenue - Expenses",
+        "Sales - Taxes"
+      ],
+      "correctAnswer": "Revenue - Expenses",
+      "topic": "financial modeling",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 2,
+      "question": "Which financial statement shows a company's revenues and expenses over a period of time?",
+      "options": [
+        "Income Statement",
+        "Balance Sheet",
+        "Statement of Cash Flows",
+        "Statement of Shareholders' Equity"
+      ],
+      "correctAnswer": "Income Statement",
+      "topic": "financial modeling",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 3,
+      "question": "What is the formula to calculate EBITDA?",
+      "options": [
+        "Net Income + Interest + Taxes + Depreciation + Amortization",
+        "Net Income - Interest - Taxes + Depreciation + Amortization",
+        "Operating Income + Taxes + Depreciation + Amortization",
+        "Gross Profit - Operating Expenses"
+      ],
+      "correctAnswer": "Operating Income + Taxes + Depreciation + Amortization",
+      "topic": "financial modeling",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 4,
+      "question": "Which financial ratio measures a company's ability to meet its short-term obligations with its short-term assets?",
+      "options": [
+        "Current Ratio",
+        "Debt to Equity Ratio",
+        "Return on Investment",
+        "Inventory Turnover Ratio"
+      ],
+      "correctAnswer": "Current Ratio",
+      "topic": "financial modeling",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 5,
+      "question": "What does ROA stand for in financial analysis?",
+      "options": [
+        "Return on Assets",
+        "Return on Equity",
+        "Risk of Asset",
+        "Revenue of Assets"
+      ],
+      "correctAnswer": "Return on Assets",
+      "topic": "financial modeling",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 6,
+      "question": "Which of the following is considered a non-cash expense?",
+      "options": [
+        "Depreciation",
+        "Interest Expense",
+        "Income Tax",
+        "Operating Expenses"
+      ],
+      "correctAnswer": "Depreciation",
+      "topic": "financial modeling",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 7,
+      "question": "What is the formula for calculating Free Cash Flow?",
+      "options": [
+        "Operating Cash Flow - Capital Expenditures",
+        "Net Income + Depreciation",
+        "EBITDA - Interest Expense",
+        "Gross Profit - Operating Expenses"
+      ],
+      "correctAnswer": "Operating Cash Flow - Capital Expenditures",
+      "topic": "financial modeling",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 8,
+      "question": "Which financial metric measures a company's profitability by expressing its net income as a percentage of revenue?",
+      "options": [
+        "Gross Margin",
+        "Operating Margin",
+        "Net Margin",
+        "EBITDA Margin"
+      ],
+      "correctAnswer": "Net Margin",
+      "topic": "financial modeling",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 9,
+      "question": "What does the DuPont analysis focus on?",
+      "options": [
+        "Profitability",
+        "Liquidity",
+        "Solvency",
+        "Market Value"
+      ],
+      "correctAnswer": "Profitability",
+      "topic": "financial modeling",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 10,
+      "question": "Which financial ratio measures a company's ability to generate profit from its equity?",
+      "options": [
+        "Return on Assets",
+        "Return on Equity",
+        "Debt to Equity Ratio",
+        "Earnings per Share"
+      ],
+      "correctAnswer": "Return on Equity",
+      "topic": "financial modeling",
+      "difficulty": "Bronze",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    }
+  ]
+}

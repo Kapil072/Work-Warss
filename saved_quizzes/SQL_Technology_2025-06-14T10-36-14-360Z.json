@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "skill": "SQL",
+    "industry": "Technology",
+    "role": "Data Science",
+    "cluster": "Data Engineering",
+    "level": "Unranked",
+    "generatedAt": "2025-06-14T10:36:14.360Z",
+    "savedAt": "2025-06-14T10:36:14.360Z"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does SQL stand for?",
+      "options": [
+        "Structured Query Language",
+        "Sequential Query Language",
+        "Standard Query Language",
+        "System Query Language"
+      ],
+      "correctAnswer": "Structured Query Language",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 2,
+      "question": "Which SQL keyword is used to retrieve data from a database?",
+      "options": [
+        "RETRIEVE",
+        "SELECT",
+        "SEARCH",
+        "GET"
+      ],
+      "correctAnswer": "SELECT",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 3,
+      "question": "Which SQL clause is used to filter records?",
+      "options": [
+        "GROUP BY",
+        "HAVING",
+        "ORDER BY",
+        "WHERE"
+      ],
+      "correctAnswer": "WHERE",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 4,
+      "question": "In SQL, which operator is used for pattern matching?",
+      "options": [
+        "LIKE",
+        "MATCH",
+        "FIND",
+        "COMPARE"
+      ],
+      "correctAnswer": "LIKE",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 5,
+      "question": "Which SQL function is used to find the total number of rows in a table?",
+      "options": [
+        "COUNT",
+        "SUM",
+        "TOTAL",
+        "ROWS"
+      ],
+      "correctAnswer": "COUNT",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 6,
+      "question": "Which SQL command is used to update existing records in a table?",
+      "options": [
+        "MODIFY",
+        "CHANGE",
+        "UPDATE",
+        "REPLACE"
+      ],
+      "correctAnswer": "UPDATE",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 7,
+      "question": "Which SQL constraint ensures that all values in a column are unique?",
+      "options": [
+        "PRIMARY KEY",
+        "FOREIGN KEY",
+        "UNIQUE",
+        "CHECK"
+      ],
+      "correctAnswer": "UNIQUE",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 8,
+      "question": "Which SQL join returns all rows when there is a match in both tables?",
+      "options": [
+        "INNER JOIN",
+        "LEFT JOIN",
+        "RIGHT JOIN",
+        "FULL JOIN"
+      ],
+      "correctAnswer": "INNER JOIN",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 9,
+      "question": "Which SQL statement is used to delete all records from a table?",
+      "options": [
+        "DROP",
+        "REMOVE",
+        "CLEAR",
+        "DELETE"
+      ],
+      "correctAnswer": "DELETE",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    },
+    {
+      "id": 10,
+      "question": "In SQL, which command is used to make permanent changes to the database?",
+      "options": [
+        "SAVE",
+        "COMMIT",
+        "APPLY",
+        "PERSIST"
+      ],
+      "correctAnswer": "COMMIT",
+      "topic": "sql",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about SQL in the context of Technology."
+    }
+  ]
+}

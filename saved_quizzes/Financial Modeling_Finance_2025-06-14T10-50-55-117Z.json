@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "skill": "Financial Modeling",
+    "industry": "Finance",
+    "role": "Investment Banking",
+    "cluster": "Financial Analysis",
+    "level": "Unranked",
+    "generatedAt": "2025-06-14T10:50:55.117Z",
+    "savedAt": "2025-06-14T10:50:55.117Z"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the formula to calculate Return on Investment (ROI)?",
+      "options": [
+        "Net Income / Total Assets",
+        "Net Profit / Sales",
+        "Net Income / Shareholder's Equity",
+        "Net Income / Total Investment"
+      ],
+      "correctAnswer": "Net Income / Total Investment",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 2,
+      "question": "Which financial statement shows a company's revenues and expenses over a period of time?",
+      "options": [
+        "Income Statement",
+        "Balance Sheet",
+        "Cash Flow Statement",
+        "Statement of Retained Earnings"
+      ],
+      "correctAnswer": "Income Statement",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 3,
+      "question": "What does the Current Ratio measure?",
+      "options": [
+        "Profitability",
+        "Liquidity",
+        "Efficiency",
+        "Solvency"
+      ],
+      "correctAnswer": "Liquidity",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 4,
+      "question": "Which of the following is a measure of a company's ability to meet its short-term obligations?",
+      "options": [
+        "Quick Ratio",
+        "Debt-to-Equity Ratio",
+        "Return on Equity",
+        "Inventory Turnover Ratio"
+      ],
+      "correctAnswer": "Quick Ratio",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 5,
+      "question": "What does the DuPont Analysis break down Return on Equity (ROE) into?",
+      "options": [
+        "Profit Margin, Asset Turnover, Financial Leverage",
+        "Operating Income, Interest Expense, Taxes",
+        "Gross Profit, Operating Expenses, Net Income",
+        "Earnings Before Interest and Taxes (EBIT), Interest Expense, Taxes"
+      ],
+      "correctAnswer": "Profit Margin, Asset Turnover, Financial Leverage",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 6,
+      "question": "Which valuation method estimates the intrinsic value of a stock by looking at the present value of its expected future cash flows?",
+      "options": [
+        "Comparable Company Analysis",
+        "Dividend Discount Model",
+        "Discounted Cash Flow Analysis",
+        "Price/Earnings Ratio"
+      ],
+      "correctAnswer": "Discounted Cash Flow Analysis",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 7,
+      "question": "What is the formula to calculate Earnings Per Share (EPS)?",
+      "options": [
+        "Net Income / Total Assets",
+        "Net Profit / Sales",
+        "Net Income / Shareholder's Equity",
+        "Net Income / Total Shares Outstanding"
+      ],
+      "correctAnswer": "Net Income / Total Shares Outstanding",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 8,
+      "question": "Which financial ratio measures a company's efficiency in using its assets to generate revenue?",
+      "options": [
+        "Return on Assets (ROA)",
+        "Debt-to-Equity Ratio",
+        "Current Ratio",
+        "Price/Earnings Ratio"
+      ],
+      "correctAnswer": "Return on Assets (ROA)",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 9,
+      "question": "What does the Working Capital ratio indicate about a company's financial health?",
+      "options": [
+        "Ability to meet short-term obligations",
+        "Efficiency of operations",
+        "Solvency and stability",
+        "Profitability and growth potential"
+      ],
+      "correctAnswer": "Ability to meet short-term obligations",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 10,
+      "question": "Which financial metric is used to evaluate a company's efficiency in managing its inventory?",
+      "options": [
+        "Inventory Turnover Ratio",
+        "Return on Equity (ROE)",
+        "Quick Ratio",
+        "Gross Margin Ratio"
+      ],
+      "correctAnswer": "Inventory Turnover Ratio",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    }
+  ]
+}

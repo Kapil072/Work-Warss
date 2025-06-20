@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "skill": "Financial Modeling",
+    "industry": "Finance",
+    "role": "Investment Banking",
+    "cluster": "Financial Analysis",
+    "level": "Unranked",
+    "generatedAt": "2025-06-14T10:52:56.904Z",
+    "savedAt": "2025-06-14T10:52:56.904Z"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the formula to calculate Return on Equity (ROE)?",
+      "options": [
+        "Net Income / Total Assets",
+        "Net Income / Shareholder's Equity",
+        "Total Revenue / Net Income",
+        "EBIT / Total Equity"
+      ],
+      "correctAnswer": "Net Income / Shareholder's Equity",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is a liquidity ratio?",
+      "options": [
+        "ROE",
+        "Current Ratio",
+        "Debt to Equity Ratio",
+        "Earnings Per Share"
+      ],
+      "correctAnswer": "Current Ratio",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 3,
+      "question": "What does the DuPont analysis focus on?",
+      "options": [
+        "Profit Margin, Asset Turnover, Financial Leverage",
+        "Revenue Recognition, Expense Matching, Cash Flow Analysis",
+        "Market Analysis, Competitor Benchmarking, SWOT Analysis",
+        "Scenario Analysis, Sensitivity Analysis, Monte Carlo Simulation"
+      ],
+      "correctAnswer": "Profit Margin, Asset Turnover, Financial Leverage",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 4,
+      "question": "Which financial statement shows a company's revenues and expenses over a period of time?",
+      "options": [
+        "Balance Sheet",
+        "Income Statement",
+        "Cash Flow Statement",
+        "Statement of Shareholders' Equity"
+      ],
+      "correctAnswer": "Income Statement",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 5,
+      "question": "What is the formula for Free Cash Flow (FCF)?",
+      "options": [
+        "Net Income - Dividends",
+        "Net Income + Depreciation - CapEx",
+        "EBIT - Interest Expense",
+        "Revenue - Cost of Goods Sold"
+      ],
+      "correctAnswer": "Net Income + Depreciation - CapEx",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 6,
+      "question": "Which of the following is a measure of a company's efficiency in managing its assets?",
+      "options": [
+        "Debt to Equity Ratio",
+        "Working Capital Ratio",
+        "Return on Assets (ROA)",
+        "Price to Earnings (P/E) Ratio"
+      ],
+      "correctAnswer": "Return on Assets (ROA)",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 7,
+      "question": "What does a higher Debt to Equity Ratio indicate?",
+      "options": [
+        "Higher risk due to more debt financing",
+        "Higher profitability",
+        "More liquidity",
+        "Strong operational efficiency"
+      ],
+      "correctAnswer": "Higher risk due to more debt financing",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 8,
+      "question": "Which valuation method estimates the value of a company based on its future cash flows?",
+      "options": [
+        "Discounted Cash Flow (DCF) Analysis",
+        "Comparable Companies Analysis",
+        "Precedent Transactions Analysis",
+        "Asset-Based Valuation"
+      ],
+      "correctAnswer": "Discounted Cash Flow (DCF) Analysis",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 9,
+      "question": "What is the formula to calculate Earnings Per Share (EPS)?",
+      "options": [
+        "Net Income / Total Assets",
+        "Net Income / Shareholder's Equity",
+        "Net Income / Number of Shares Outstanding",
+        "EBIT / Total Equity"
+      ],
+      "correctAnswer": "Net Income / Number of Shares Outstanding",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 10,
+      "question": "Which financial ratio measures a company's ability to cover its short-term liabilities with its short-term assets?",
+      "options": [
+        "Quick Ratio",
+        "Debt to Equity Ratio",
+        "Return on Equity (ROE)",
+        "Price to Earnings (P/E) Ratio"
+      ],
+      "correctAnswer": "Quick Ratio",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    }
+  ]
+}

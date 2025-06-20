@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "skill": "Financial Modeling",
+    "industry": "Finance",
+    "role": "Investment Banking",
+    "cluster": "Financial Analysis",
+    "level": "Unranked",
+    "generatedAt": "2025-06-14T10:50:50.919Z",
+    "savedAt": "2025-06-14T10:50:50.919Z"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the purpose of financial modeling in investment banking?",
+      "options": [
+        "To predict the future stock prices accurately",
+        "To analyze financial statements and make forecasts",
+        "To determine the current market trends",
+        "To calculate historical stock returns"
+      ],
+      "correctAnswer": "To analyze financial statements and make forecasts",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is a common financial modeling technique?",
+      "options": [
+        "Regression analysis",
+        "Sentiment analysis",
+        "Social media marketing",
+        "Graphic design"
+      ],
+      "correctAnswer": "Regression analysis",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 3,
+      "question": "What is the key benefit of using sensitivity analysis in financial modeling?",
+      "options": [
+        "It helps in creating attractive charts",
+        "It provides insights into the impact of changing key variables",
+        "It automates the financial modeling process",
+        "It generates financial reports"
+      ],
+      "correctAnswer": "It provides insights into the impact of changing key variables",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 4,
+      "question": "Which financial statement is typically analyzed first in financial modeling?",
+      "options": [
+        "Income statement",
+        "Balance sheet",
+        "Cash flow statement",
+        "Statement of retained earnings"
+      ],
+      "correctAnswer": "Income statement",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 5,
+      "question": "What does the term 'EBITDA' stand for in financial modeling?",
+      "options": [
+        "Earnings Before Income Tax, Depreciation, and Amortization",
+        "Estimated Business Investments Total Dollar Amount",
+        "Expected Balance In The Daily Account",
+        "Earned Benefits In The Defined Asset"
+      ],
+      "correctAnswer": "Earnings Before Income Tax, Depreciation, and Amortization",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 6,
+      "question": "Which of the following is a common financial modeling error to avoid?",
+      "options": [
+        "Over-complicating the model",
+        "Including only positive scenarios",
+        "Using outdated data",
+        "Ignoring macroeconomic factors"
+      ],
+      "correctAnswer": "Over-complicating the model",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 7,
+      "question": "What is the purpose of a DCF (Discounted Cash Flow) analysis in financial modeling?",
+      "options": [
+        "To calculate the company's market share",
+        "To estimate the future cash flows of a business",
+        "To determine the competitors' profitability",
+        "To evaluate the social media presence of the company"
+      ],
+      "correctAnswer": "To estimate the future cash flows of a business",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 8,
+      "question": "Which financial ratio measures a company's ability to meet its short-term obligations?",
+      "options": [
+        "Return on Investment (ROI)",
+        "Debt to Equity Ratio",
+        "Current Ratio",
+        "Price to Earnings (P/E) Ratio"
+      ],
+      "correctAnswer": "Current Ratio",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 9,
+      "question": "What does the term 'WACC' refer to in financial modeling?",
+      "options": [
+        "Weighted Average Cost of Capital",
+        "Worldwide Asset Classification Code",
+        "Working Asset Conversion Cycle",
+        "Weekly Accounts Cash Collection"
+      ],
+      "correctAnswer": "Weighted Average Cost of Capital",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 10,
+      "question": "Which financial modeling technique is used to evaluate the risk associated with an investment?",
+      "options": [
+        "Scenario analysis",
+        "Brand positioning analysis",
+        "Product development analysis",
+        "Employee satisfaction analysis"
+      ],
+      "correctAnswer": "Scenario analysis",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    }
+  ]
+}

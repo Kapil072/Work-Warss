@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "skill": "Financial Modeling",
+    "industry": "Finance",
+    "role": "Investment Banking",
+    "cluster": "Financial Analysis",
+    "level": "Unranked",
+    "generatedAt": "2025-06-14T10:52:56.852Z",
+    "savedAt": "2025-06-14T10:52:56.852Z"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the formula to calculate Return on Equity (ROE)?",
+      "options": [
+        "Net Income / Total Assets",
+        "Net Income / Shareholder's Equity",
+        "EBIT / Interest Expense",
+        "Total Revenue / Total Equity"
+      ],
+      "correctAnswer": "Net Income / Shareholder's Equity",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 2,
+      "question": "Which financial statement shows a company's revenues and expenses over a period of time?",
+      "options": [
+        "Balance Sheet",
+        "Cash Flow Statement",
+        "Income Statement",
+        "Statement of Shareholders' Equity"
+      ],
+      "correctAnswer": "Income Statement",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 3,
+      "question": "What does the Current Ratio measure?",
+      "options": [
+        "A company's ability to meet short-term obligations",
+        "A company's ability to meet long-term obligations",
+        "A company's profitability",
+        "A company's inventory turnover"
+      ],
+      "correctAnswer": "A company's ability to meet short-term obligations",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 4,
+      "question": "Which valuation method values a company based on its expected future cash flows?",
+      "options": [
+        "Comparable Companies Analysis",
+        "Precedent Transactions Analysis",
+        "Discounted Cash Flow Analysis",
+        "Liquidation Valuation"
+      ],
+      "correctAnswer": "Discounted Cash Flow Analysis",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 5,
+      "question": "What is the formula for calculating Earnings Per Share (EPS)?",
+      "options": [
+        "Net Income / Total Assets",
+        "Net Income / Shareholder's Equity",
+        "Net Income / Outstanding Shares",
+        "Total Revenue / Total Equity"
+      ],
+      "correctAnswer": "Net Income / Outstanding Shares",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 6,
+      "question": "Which financial metric indicates a company's efficiency in using its assets to generate revenue?",
+      "options": [
+        "Return on Equity (ROE)",
+        "Return on Assets (ROA)",
+        "Price to Earnings (P/E) Ratio",
+        "Debt to Equity Ratio"
+      ],
+      "correctAnswer": "Return on Assets (ROA)",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 7,
+      "question": "What does the Debt to Equity Ratio measure?",
+      "options": [
+        "A company's ability to meet short-term obligations",
+        "A company's leverage and financial risk",
+        "A company's profitability",
+        "A company's inventory turnover"
+      ],
+      "correctAnswer": "A company's leverage and financial risk",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 8,
+      "question": "Which financial statement shows the changes in a company's retained earnings over a period of time?",
+      "options": [
+        "Balance Sheet",
+        "Cash Flow Statement",
+        "Income Statement",
+        "Statement of Shareholders' Equity"
+      ],
+      "correctAnswer": "Statement of Shareholders' Equity",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 9,
+      "question": "What is the formula for calculating Free Cash Flow (FCF)?",
+      "options": [
+        "Net Income + Depreciation",
+        "Operating Cash Flow - Capital Expenditures",
+        "EBITDA - Interest Expense",
+        "Total Revenue - Cost of Goods Sold"
+      ],
+      "correctAnswer": "Operating Cash Flow - Capital Expenditures",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    },
+    {
+      "id": 10,
+      "question": "Which financial metric compares a company's market value to its earnings?",
+      "options": [
+        "Return on Equity (ROE)",
+        "Return on Assets (ROA)",
+        "Price to Earnings (P/E) Ratio",
+        "Debt to Equity Ratio"
+      ],
+      "correctAnswer": "Price to Earnings (P/E) Ratio",
+      "topic": "financial modeling",
+      "difficulty": "Unranked",
+      "explanation": "This question tests knowledge about Financial Modeling in the context of Finance."
+    }
+  ]
+}
