@@ -9,6 +9,7 @@ import {
   BookOpen, Clock, Users, X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import SkillClusterTracker from '../components/SkillClusterTracker';
 
 interface Cluster {
   id: string;
@@ -302,333 +303,164 @@ const Achievements = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 p-4 sm:p-6 lg:p-8">
-      <div className="w-full max-w-[2000px] mx-auto">
-        {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-          <div className="flex items-center">
-            <button
-              onClick={() => navigate('/')}
-              className="p-2 hover:bg-white/50 rounded-full transition-all duration-300"
-            >
-              <ArrowLeft className="h-5 w-5 text-gray-600" />
-            </button>
-            <h1 className="text-2xl font-bold text-gray-800 ml-4">Achievements</h1>
-          </div>
-          <div className="flex items-center gap-2 bg-white/80 px-3 py-1.5 rounded-full shadow-sm w-fit">
-            <Trophy className="h-4 w-4 text-amber-500" />
-            <span className="text-sm font-medium text-gray-700">{badges.length} Badges</span>
-          </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-500 via-blue-400 to-purple-600 relative overflow-hidden">
+      <div className="mx-4 my-6 sm:mx-8 sm:my-10">
+        {/* Decorative gem/shine overlays */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-blue-300 rounded-full blur-2xl opacity-30"></div>
+          <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-400 rounded-full blur-3xl opacity-20"></div>
+          <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-blue-200 rounded-full blur-2xl opacity-20"></div>
         </div>
-
-        {/* Badges Showcase */}
-        <div className="bg-white rounded-xl p-4 sm:p-6 mb-6 shadow-lg">
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center gap-2">
-              <Sparkles className="h-6 w-6 text-blue-500" />
-              <h2 className="text-xl font-semibold text-gray-800">Your Badges</h2>
+        <div className="w-full max-w-[2000px] mx-auto relative z-10">
+          {/* Header */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+            <div className="flex items-center">
+              <button
+                onClick={() => navigate('/')}
+                className="p-2 hover:bg-white/50 rounded-full transition-all duration-300"
+              >
+                <ArrowLeft className="h-5 w-5 text-gray-600" />
+              </button>
+              <h1 className="text-2xl font-bold text-gray-800 ml-4">Achievements</h1>
             </div>
-            <button
-              onClick={() => setShowBadgeInfo(!showBadgeInfo)}
-              className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-            >
-              <Info className="h-5 w-5 text-gray-500" />
-            </button>
-          </div>
-          
-          {/* Mobile Layout */}
-          <div className="flex sm:hidden justify-center items-end gap-4 px-2 py-6">
-            {[
-              { type: 'Silver Badge', position: 2 },
-              { type: 'Gold Badge', position: 1 },
-              { type: 'Bronze Badge', position: 3 }
-            ].map(({ type, position }) => {
-              const badgeCount = badgeCounts.find(b => b.type === type);
-              const badgeEmoji = getBadgeEmoji(type as BadgeType);
-              const badgeColor = getBadgeColor(type as BadgeType);
-              const hasBadge = badges.includes(type as BadgeType);
-              const isGold = type === 'Gold Badge';
-              
-              return (
-                <motion.div
-                  key={type}
-                  className={`group cursor-pointer relative ${position === 1 ? 'order-2 -translate-y-6' : position === 2 ? 'order-1 -translate-y-3' : 'order-3'}`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => {
-                    setSelectedBadge(type as BadgeType);
-                    setShowBadgeDetails(true);
-                  }}
-                >
-                  <div className={`bg-gradient-to-br from-white to-gray-50 rounded-xl p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 ${isGold ? 'transform scale-110' : ''}`}>
-                    <div className="flex flex-col items-center">
-                      <div className={`bg-gradient-to-br ${badgeColor} p-2.5 rounded-full text-2xl transform transition-all duration-300 badge-shine ${hasBadge ? 'shadow-xl' : 'opacity-70'} ${isGold ? 'scale-110' : ''}`}>
-                        {badgeEmoji}
-                      </div>
-                      <div className="mt-2 text-center">
-                        <div className="text-lg font-bold text-gray-800">{badgeCount?.count || 0}</div>
-                        <div className="text-xs text-gray-600">Earned</div>
-                      </div>
-                      <span className="text-xs font-medium text-gray-700 mt-1">
-                        {type.split(' ')[0]}
-                      </span>
-                      {hasBadge && (
-                        <span className="text-xs text-green-600 mt-1 flex items-center gap-1">
-                          <CheckCircle2 className="h-3 w-3" />
-                          Certified
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  {/* Podium Base - Mobile */}
-                  <div className={`absolute -bottom-4 left-0 right-0 h-${position === 1 ? '16' : position === 2 ? '12' : '8'} bg-gradient-to-b from-gray-200 to-gray-300 rounded-t-lg podium-base`}></div>
-                </motion.div>
-              );
-            })}
+            <div className="flex items-center gap-2 bg-white/80 px-3 py-1.5 rounded-full shadow-sm w-fit">
+              <Trophy className="h-4 w-4 text-amber-500" />
+              <span className="text-sm font-medium text-gray-700">{badges.length} Badges</span>
+            </div>
           </div>
 
-          {/* Desktop Layout */}
-          <div className="hidden sm:flex justify-center items-end gap-8 py-8">
-            {[
-              { type: 'Silver Badge', position: 2 },
-              { type: 'Gold Badge', position: 1 },
-              { type: 'Bronze Badge', position: 3 }
-            ].map(({ type, position }) => {
-              const badgeCount = badgeCounts.find(b => b.type === type);
-              const badgeEmoji = getBadgeEmoji(type as BadgeType);
-              const badgeColor = getBadgeColor(type as BadgeType);
-              const hasBadge = badges.includes(type as BadgeType);
-              const isGold = type === 'Gold Badge';
-              
-              return (
-                <motion.div
+          {/* Badges Showcase - Gamified */}
+          <div className="bg-white/80 backdrop-blur-md rounded-xl p-4 sm:p-6 mb-6 shadow-lg relative overflow-visible">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-2">
+                <Sparkles className="h-6 w-6 text-blue-500 animate-pulse" />
+                <h2 className="text-xl font-semibold text-gray-800">Your Badges</h2>
+              </div>
+              <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                <Info className="h-5 w-5 text-gray-500" />
+              </button>
+            </div>
+            {/* Podium */}
+            <div className="flex justify-center items-end gap-8 py-8 relative z-10">
+              {[
+                { type: 'Silver', emoji: '🥈', count: 10, color: 'from-[#C0C0C0] via-[#E8E8E8] to-[#C0C0C0]', order: 1, glow: 'shadow-[#C0C0C0]/50' },
+                { type: 'Gold', emoji: '🥇', count: 20, color: 'from-[#FFD700] via-[#FFF1AA] to-[#FFD700]', order: 2, glow: 'shadow-[#FFD700]/50 badge-glow' },
+                { type: 'Bronze', emoji: '🥉', count: 5, color: 'from-[#CD7F32] via-[#E8AC7E] to-[#CD7F32]', order: 3, glow: 'shadow-[#CD7F32]/50' }
+              ].map(({ type, emoji, count, color, order, glow }) => (
+                <div
                   key={type}
-                  className={`group cursor-pointer relative ${position === 1 ? 'order-2 -translate-y-8' : position === 2 ? 'order-1 -translate-y-4' : 'order-3'}`}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => {
-                    setSelectedBadge(type as BadgeType);
-                    setShowBadgeDetails(true);
-                  }}
+                  className={`group cursor-pointer relative order-${order} ${order === 2 ? '-translate-y-8 scale-110' : order === 1 ? '-translate-y-4' : ''}`}
+                  tabIndex={0}
+                  style={{ zIndex: order === 2 ? 2 : 1 }}
                 >
-                  <div className={`bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 ${isGold ? 'transform scale-110' : ''}`}>
+                  <div className={`bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100`}>
                     <div className="flex flex-col items-center gap-4">
-                      <div className={`bg-gradient-to-br ${badgeColor} p-4 rounded-full text-4xl transform transition-all duration-300 badge-shine ${hasBadge ? 'shadow-xl' : 'opacity-70'} ${isGold ? 'scale-110' : ''}`}>
-                        {badgeEmoji}
+                      <div className={`bg-gradient-to-br ${color} ${glow} animate-pulse-slow p-4 rounded-full text-4xl transform transition-all duration-300 badge-shine opacity-90 group-hover:scale-125`}>
+                        {emoji}
                       </div>
                       <div className="text-center">
-                        <div className="text-3xl font-bold text-gray-800">{badgeCount?.count || 0}</div>
+                        <div className="text-3xl font-bold text-gray-800 animate-countup">{count}</div>
                         <div className="text-sm text-gray-600">Earned</div>
                       </div>
-                      <div className="flex flex-col items-center">
-                        <span className="text-lg font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
-                          {type.split(' ')[0]}
-                        </span>
-                        {hasBadge && (
-                          <span className="text-sm text-green-600 mt-1 flex items-center gap-1">
-                            <CheckCircle2 className="h-4 w-4" />
-                            Certified
-                          </span>
-                        )}
-                      </div>
+                      <span className="text-lg font-medium text-gray-700 group-hover:text-gray-900 transition-colors">{type}</span>
                     </div>
                   </div>
                   {/* Podium Base */}
-                  <div className={`absolute -bottom-8 left-0 right-0 h-${position === 1 ? '32' : position === 2 ? '24' : '16'} bg-gradient-to-b from-gray-200 to-gray-300 rounded-t-lg podium-base`}></div>
-                </motion.div>
-              );
-            })}
+                  <div className={`absolute -bottom-8 left-0 right-0 ${order === 2 ? 'h-32' : order === 1 ? 'h-24' : 'h-16'} bg-gradient-to-b from-gray-200 to-gray-300 rounded-t-lg podium-base`}></div>
+                  {/* Sparkle effect on hover */}
+                  <span className="absolute top-0 right-0 animate-sparkle opacity-0 group-hover:opacity-100">✨</span>
+                </div>
+              ))}
+            </div>
+            {/* Add confetti or fireworks animation here if a badge is newly earned */}
           </div>
-        </div>
 
-        {/* Badge Details Modal */}
-        <AnimatePresence>
-          {showBadgeDetails && selectedBadge && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4"
-              onClick={() => setShowBadgeDetails(false)}
-            >
+          {/* Insert SkillClusterTracker progress UI here */}
+          <div className="my-8">
+            <h2 className="text-xl font-bold text-center text-gray-800 mb-6"></h2>
+            <div className="flex flex-col lg:flex-row justify-center items-stretch gap-2 w-full mb-0 pb-0">
+              <SkillClusterTracker clusterId="data-science" minimizable />
+              <SkillClusterTracker clusterId="web-development" minimizable />
+              <SkillClusterTracker clusterId="machine-learning" minimizable />
+            </div>
+          </div>
+
+          {/* Badge Details Modal */}
+          <AnimatePresence>
+            {showBadgeDetails && selectedBadge && (
               <motion.div
-                initial={{ scale: 0.95, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.95, opacity: 0 }}
-                className="bg-white rounded-xl p-6 w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto"
-                onClick={e => e.stopPropagation()}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+                onClick={() => setShowBadgeDetails(false)}
               >
-                <div className="flex items-start justify-between mb-6">
-                  <div className="flex items-center gap-4">
-                    <div className={`bg-gradient-to-br ${getBadgeColor(selectedBadge)} p-4 rounded-full text-4xl`}>
-                      {getBadgeEmoji(selectedBadge)}
+                <motion.div
+                  initial={{ scale: 0.95, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.95, opacity: 0 }}
+                  className="bg-white rounded-xl p-6 w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto"
+                  onClick={e => e.stopPropagation()}
+                >
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="flex items-center gap-4">
+                      <div className={`bg-gradient-to-br ${getBadgeColor(selectedBadge)} p-4 rounded-full text-4xl`}>
+                        {getBadgeEmoji(selectedBadge)}
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-gray-800">{selectedBadge}</h3>
+                        <p className="text-gray-600">{getBadgeDescription(selectedBadge)}</p>
+                      </div>
                     </div>
+                    <button
+                      onClick={() => setShowBadgeDetails(false)}
+                      className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                    >
+                      <X className="h-5 w-5 text-gray-500" />
+                    </button>
+                  </div>
+
+                  <div className="space-y-6">
+                    {/* Badge Requirements */}
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4">
+                      <h4 className="text-lg font-semibold text-gray-700 mb-3">Requirements</h4>
+                      <ul className="space-y-2">
+                        {getBadgeRequirements(selectedBadge).map((req, index) => (
+                          <li key={index} className="flex items-center gap-2 text-gray-600">
+                            <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                            {req}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Earned Badges List */}
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-800">{selectedBadge}</h3>
-                      <p className="text-gray-600">{getBadgeDescription(selectedBadge)}</p>
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => setShowBadgeDetails(false)}
-                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-                  >
-                    <X className="h-5 w-5 text-gray-500" />
-                  </button>
-                </div>
-
-                <div className="space-y-6">
-                  {/* Badge Requirements */}
-                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4">
-                    <h4 className="text-lg font-semibold text-gray-700 mb-3">Requirements</h4>
-                    <ul className="space-y-2">
-                      {getBadgeRequirements(selectedBadge).map((req, index) => (
-                        <li key={index} className="flex items-center gap-2 text-gray-600">
-                          <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                          {req}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Earned Badges List */}
-                  <div>
-                    <h4 className="text-lg font-semibold text-gray-700 mb-3">Earned Badges</h4>
-                    <div className="space-y-3">
-                      {badgeCounts.find(b => b.type === selectedBadge)?.earnedDates.map((date, index) => (
-                        <div key={index} className="flex items-center justify-between bg-white rounded-lg p-3 shadow-sm">
-                          <div className="flex items-center gap-3">
-                            <div className={`bg-gradient-to-br ${getBadgeColor(selectedBadge)} p-2 rounded-lg`}>
-                              {getBadgeEmoji(selectedBadge)}
-                            </div>
-                            <div>
-                              <div className="font-medium text-gray-800">Achievement #{index + 1}</div>
-                              <div className="text-sm text-gray-500">{new Date(date).toLocaleDateString()}</div>
-                            </div>
-                          </div>
-                          <div className="text-sm text-gray-500">
-                            {new Date(date).toLocaleTimeString()}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Clusters with enhanced animations */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
-          {CLUSTERS.map((cluster, index) => (
-            <motion.div
-              key={cluster.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-xl shadow-lg overflow-hidden"
-            >
-              {/* Cluster Header */}
-              <div 
-                className="p-4 cursor-pointer hover:bg-gray-50 transition-colors"
-                onClick={() => setExpandedCluster(expandedCluster === cluster.id ? null : cluster.id)}
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-gradient-to-r from-blue-500 to-indigo-500 p-2 rounded-lg">
-                      <Target className="h-5 w-5 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-800">{cluster.name}</h3>
-                      <p className="text-sm text-gray-600 line-clamp-1">{cluster.description}</p>
-                      <p className="text-sm text-gray-600 mt-1">
-                        {cluster.topics.filter(t => t.completed).length}/{cluster.requiredTopics} topics completed
-                      </p>
-                    </div>
-                  </div>
-                  {expandedCluster === cluster.id ? (
-                    <ChevronUp className="h-5 w-5 text-gray-400" />
-                  ) : (
-                    <ChevronDown className="h-5 w-5 text-gray-400" />
-                  )}
-                </div>
-
-                {/* Progress Bar */}
-                <div className="mt-3 h-2 bg-gray-100 rounded-full overflow-hidden">
-                  <div 
-                    className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-500"
-                    style={{ width: `${getClusterProgress(cluster)}%` }}
-                  />
-                </div>
-              </div>
-
-              {/* Topics List */}
-              {expandedCluster === cluster.id && (
-                <div className="border-t border-gray-100">
-                  {cluster.topics.map(topic => {
-                    const hasBadge = badges.includes(topic.badge);
-                    const badgeEmoji = getBadgeEmoji(topic.badge);
-                    const badgeName = topic.badge;
-                    const badgeColor = getBadgeColor(topic.badge);
-                    const isCompleted = topic.badge === 'Gold Badge' && hasBadge;
-                    
-                    return (
-                      <div 
-                        key={topic.id}
-                        className="p-4 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0"
-                      >
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-3">
-                            <div className={`bg-gradient-to-br ${badgeColor} p-2 rounded-lg ${!hasBadge ? 'opacity-50' : 'shadow-lg animate-pulse-slow'} ${topic.badge === 'Gold Badge' && topic.completed ? 'badge-glow' : ''}`}>
-                              {topic.completed ? (
-                                <CheckCircle2 className="h-5 w-5 text-white" />
-                              ) : hasBadge ? (
-                                <CheckCircle2 className="h-5 w-5 text-white" />
-                              ) : (
-                                <Lock className="h-5 w-5 text-white" />
-                              )}
-                            </div>
-                            <div>
-                              <h4 className="font-medium text-gray-800 flex items-center gap-2">
-                                {topic.name}
-                                {topic.completed && (
-                                  <span className="text-xs bg-green-100 text-green-600 px-2 py-0.5 rounded-full">Completed</span>
-                                )}
-                              </h4>
-                              <p className="text-sm text-gray-600 line-clamp-1">{topic.description}</p>
-                              <div className="flex items-center gap-2 mt-1">
-                                <p className="text-sm text-gray-600 flex items-center gap-1">
-                                  {badgeEmoji} {badgeName}
-                                </p>
-                                <div className="h-1.5 w-16 bg-gray-100 rounded-full overflow-hidden">
-                                  <div 
-                                    className={`h-full bg-gradient-to-r ${topic.completed ? 'from-green-500 to-green-400' : 'from-blue-500 to-indigo-500'}`}
-                                    style={{ width: `${topic.progress}%` }}
-                                  />
-                                </div>
+                      <h4 className="text-lg font-semibold text-gray-700 mb-3">Earned Badges</h4>
+                      <div className="space-y-3">
+                        {badgeCounts.find(b => b.type === selectedBadge)?.earnedDates.map((date, index) => (
+                          <div key={index} className="flex items-center justify-between bg-white rounded-lg p-3 shadow-sm">
+                            <div className="flex items-center gap-3">
+                              <div className={`bg-gradient-to-br ${getBadgeColor(selectedBadge)} p-2 rounded-lg`}>
+                                {getBadgeEmoji(selectedBadge)}
+                              </div>
+                              <div>
+                                <div className="font-medium text-gray-800">Achievement #{index + 1}</div>
+                                <div className="text-sm text-gray-500">{new Date(date).toLocaleDateString()}</div>
                               </div>
                             </div>
+                            <div className="text-sm text-gray-500">
+                              {new Date(date).toLocaleTimeString()}
+                            </div>
                           </div>
-                          {!topic.completed && (
-                            <button
-                              onClick={() => navigate(`/topics/${topic.id}`)}
-                              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
-                                hasBadge 
-                                  ? 'bg-blue-50 text-blue-600 hover:bg-blue-100'
-                                  : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
-                              }`}
-                            >
-                              {hasBadge ? 'Review' : 'Start'}
-                            </button>
-                          )}
-                        </div>
+                        ))}
                       </div>
-                    );
-                  })}
-                </div>
-              )}
-            </motion.div>
-          ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
 

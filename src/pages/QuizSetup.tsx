@@ -14,6 +14,12 @@ import { ArrowLeft } from 'lucide-react';
 import type { QuizSetup as QuizSetupType } from '@/contexts/QuizContext';
 import { useToast } from '@/components/ui/use-toast';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import IndustryRoleSelector from '../../selection/src/components/IndustryRoleSelector';
+import KnowledgeClusterSpinner from '../../selection/src/components/KnowledgeClusterSpinner';
+import SkillGrid from '../../selection/src/components/SkillGrid';
+import clustersByIndustryRole from '../../selection/src/components/KnowledgeClusterSpinner'; // (Assume we can import the mapping, or redefine it here if not exported)
+import CountUp from './CountUp';
+import { BoxesLoaderComponent } from './BoxesLoaderComponent';
 
 // Define the data structure for industries, roles, clusters, and skills
 const industryData = {
@@ -94,6 +100,64 @@ const industryData = {
   }
 };
 
+// Add Dummy Industry to user options for testing
+const extendedIndustryData = {
+  ...industryData,
+  "Dummy Industry": {
+    roles: {
+      "Dummy Role": {
+        clusters: {
+          "Dummy Cluster": {
+            skills: ["Dummy Skill"]
+          }
+        }
+      }
+    }
+  }
+};
+
+// Conversion function to map your data to the spinner's expected format
+const getClustersForIndustryRole = (industry, role) => {
+  if (!industry || !role) return [];
+  const clustersObj = extendedIndustryData[industry]?.roles?.[role]?.clusters || {};
+  return Object.entries(clustersObj).map(([clusterName, clusterData], idx) => ({
+    id: clusterName.toLowerCase().replace(/\s+/g, '_'),
+    name: clusterName,
+    color: 'from-blue-500 to-cyan-500', // default color, can be improved
+    skills: (clusterData.skills || []).map((skill, i) => ({
+      id: skill.toLowerCase().replace(/\s+/g, '_'),
+      name: skill,
+      color: 'from-blue-500 to-cyan-500', // default color
+    })),
+  }));
+};
+
+// Helper: get the first industry and role from the spinner's mapping
+const getFirstIndustryAndRole = () => {
+  // Get all keys like 'Technology-Software Engineer'
+  const keys = Object.keys(clustersByIndustryRole).filter(k => k !== 'default');
+  if (keys.length === 0) return { industry: '', role: '' };
+  const [industry, role] = keys[0].split('-');
+  return { industry, role };
+};
+
+// Define Cluster type locally
+interface Cluster {
+  id: string;
+  name: string;
+  color: string;
+  skills: Array<{
+    id: string;
+    name: string;
+    color: string;
+  }>;
+}
+
+// Add a type guard for Cluster
+function isCluster(obj: any): obj is Cluster {
+  return obj && typeof obj === 'object' && Array.isArray(obj.skills);
+}
+
 const QuizSetup = () => {
   const navigate = useNavigate();
   const { setQuizSetup, startQuiz } = useQuiz();
@@ -101,59 +165,19 @@ const QuizSetup = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const [formData, setFormData] = useState({
-    industry: "",
-    role: "",
-    cluster: "",
-    skill: "",
-  });
+  // Set default industry/role to the first available
+  const { industry: defaultIndustry, role: defaultRole } = getFirstIndustryAndRole();
+  const [selectedIndustry, setSelectedIndustry] = useState(defaultIndustry);
+  const [selectedRole, setSelectedRole] = useState(defaultRole);
+  const [selectedCluster, setSelectedCluster] = useState<Cluster | null>(null);
+  const [selectedSkill, setSelectedSkill] = useState('');
+  const [showSelector, setShowSelector] = useState(true);
+  const [showCountUp, setShowCountUp] = useState(false);
 
-  // Get available roles based on selected industry
-  const getAvailableRoles = () => {
-    if (!formData.industry) return [];
-    return Object.keys(industryData[formData.industry as keyof typeof industryData]?.roles || {});
-  };
-
-  // Get available clusters based on selected role
-  const getAvailableClusters = () => {
-    if (!formData.industry || !formData.role) return [];
-    return Object.keys(
-      industryData[formData.industry as keyof typeof industryData]?.roles[formData.role]?.clusters || {}
-    );
-  };
-
-  // Get available skills based on selected cluster
-  const getAvailableSkills = () => {
-    if (!formData.industry || !formData.role || !formData.cluster) return [];
-    return industryData[formData.industry as keyof typeof industryData]?.roles[formData.role]?.clusters[formData.cluster]?.skills || [];
-  };
-
-  // Reset dependent fields when parent selection changes
-  const handleIndustryChange = (value: string) => {
-    setFormData({
-      industry: value,
-      role: "",
-      cluster: "",
-      skill: "",
-    });
-  };
-
-  const handleRoleChange = (value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      role: value,
-      cluster: "",
-      skill: "",
-    }));
-  };
-
-  const handleClusterChange = (value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      cluster: value,
-      skill: "",
-    }));
-  };
+  useEffect(() => {
+    setSelectedCluster(null);
+    setSelectedSkill('');
+  }, [selectedIndustry, selectedRole]);
 
   // Test server connection on component mount
   useEffect(() => {
@@ -175,194 +199,97 @@ const QuizSetup = () => {
         });
       }
     };
-
     testServer();
   }, [toast]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // Submission logic
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
     setIsLoading(true);
-
     try {
-      // Validate inputs
-      if (!formData.industry || !formData.role || !formData.cluster || !formData.skill) {
-        throw new Error("Please fill in all fields");
+      if (!selectedIndustry || !selectedRole || !selectedCluster || !selectedSkill) {
+        throw new Error('Please fill in all fields');
       }
-
-      // Test server connection first
-      console.log('Testing server connection...');
-      const testResponse = await fetch('http://localhost:5000/test');
-      
-      if (testResponse.status === 429) {
-        throw new Error('Too many requests. Please wait a moment and try again.');
-      }
-
-      const testData = await testResponse.json();
-      console.log('Server test response:', testData);
-
-      if (!testResponse.ok || testData.status === 'error') {
-        throw new Error(testData.message || 'Server is not responding');
-      }
-
-      // Generate questions
-      const response = await fetch('http://localhost:5000/generate-questions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          skill: formData.skill,
-          industry: formData.industry,
-          role: formData.role,
-          cluster: formData.cluster,
-          level: 'Bronze' // Default level
-        }),
-      });
-
-      if (response.status === 429) {
-        throw new Error('Too many requests. Please wait a moment and try again.');
-      }
-
-      const data = await response.json();
-      if (!data.questions || !Array.isArray(data.questions)) {
-        throw new Error("Invalid response format");
-      }
-
-      // Set up quiz context
-      setQuizSetup({
-        industry: formData.industry,
-        role: formData.role,
-        cluster: formData.cluster,
-        skill: formData.skill,
-      });
-
-      // Start the quiz
-      startQuiz();
-      navigate("/quiz");
+      setShowCountUp(true);
+      setTimeout(() => {
+        setQuizSetup({
+          industry: selectedIndustry,
+          role: selectedRole,
+          cluster: selectedCluster.name,
+          skill: selectedSkill,
+        });
+        startQuiz();
+        navigate('/quiz');
+      }, 1000); // Wait for CountUp duration
     } catch (error) {
-      console.error("Error:", error);
-      setError(error instanceof Error ? error.message : "An error occurred");
+      setError(error instanceof Error ? error.message : 'An error occurred');
       toast({
-        title: "Error",
-        description: error instanceof Error ? error.message : "Failed to start quiz",
-        variant: "destructive",
+        title: 'Error',
+        description: error instanceof Error ? error.message : 'Failed to start quiz',
+        variant: 'destructive',
       });
+      setShowCountUp(false);
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 p-4">
-      <div className="max-w-2xl mx-auto">
-          <Button
-            onClick={() => navigate('/')}
-          className="mb-6 bg-white/10 hover:bg-white/20 text-white"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
+    <div className="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 p-2 sm:p-4">
+      <div className="w-full max-w-2xl mx-auto">
+        <Button onClick={() => navigate('/')} className="mb-4 sm:mb-6 bg-white/10 hover:bg-white/20 text-white">
+          <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Home
-          </Button>
-
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
-          <h1 className="text-2xl font-bold mb-6">Quiz Setup</h1>
-          
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium mb-2">Industry</label>
-              <Select
-                value={formData.industry}
-                onValueChange={handleIndustryChange}
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder="Select industry" />
-                </SelectTrigger>
-                <SelectContent>
-                  {Object.keys(industryData).map((industry) => (
-                    <SelectItem key={industry} value={industry}>
-                      {industry}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+        </Button>
+        <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-3 sm:p-6 shadow-lg">
+          <h1 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center"></h1>
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+            {/* Industry & Role Selector Button - now left-aligned */}
+            <div className="flex flex-col items-start">
+              <IndustryRoleSelector
+                onSelectionComplete={(industry, role) => {
+                  setSelectedIndustry(industry);
+                  setSelectedRole(role);
+                  setShowSelector(false);
+                }}
+              />
+              {selectedIndustry && selectedRole && (
+                <div className="mt-2 text-sm text-gray-700 text-left">
+                  {/* Optionally show selected industry/role here */}
+                </div>
+              )}
             </div>
-
-            {formData.industry && (
-              <div>
-                <label className="block text-sm font-medium mb-2">Role</label>
-                <Select
-                  value={formData.role}
-                  onValueChange={handleRoleChange}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select role" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {getAvailableRoles().map((role) => (
-                      <SelectItem key={role} value={role}>
-                        {role}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+            {/* Cluster Spinner */}
+            {selectedIndustry && selectedRole && (
+              <div className="mt-12 sm:mt-32 flex justify-center">
+                <KnowledgeClusterSpinner
+                  industry={selectedIndustry}
+                  role={selectedRole}
+                  onClusterSelect={cluster => setSelectedCluster(cluster as Cluster)}
+                />
               </div>
             )}
-
-            {formData.role && (
-              <div>
-                <label className="block text-sm font-medium mb-2">Knowledge Cluster</label>
-                <Select
-                  value={formData.cluster}
-                  onValueChange={handleClusterChange}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select knowledge cluster" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {getAvailableClusters().map((cluster) => (
-                      <SelectItem key={cluster} value={cluster}>
-                        {cluster}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
+            {/* Skill Grid */}
+            {selectedCluster &&
+              ((selectedIndustry === 'Dummy Industry' && selectedRole === 'Dummy Role' && selectedCluster.name === 'Dummy Cluster') ||
+              (selectedIndustry !== 'Dummy Industry' && selectedRole !== 'Dummy Role' && selectedCluster.name !== 'Dummy Cluster')) && (
+                <div className="flex justify-center">
+                  <SkillGrid
+                    skills={(selectedCluster && 'skills' in selectedCluster ? (selectedCluster as Cluster).skills : [])}
+                    selectedSkill={selectedSkill}
+                    onSkillSelect={setSelectedSkill}
+                  />
+                </div>
             )}
-
-            {formData.cluster && (
-              <div>
-                <label className="block text-sm font-medium mb-2">Skill to Test</label>
-                <Select
-                  value={formData.skill}
-                  onValueChange={(value) => setFormData(prev => ({ ...prev, skill: value }))}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select skill" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {getAvailableSkills().map((skill) => (
-                      <SelectItem key={skill} value={skill}>
-                        {skill}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-            )}
-
+            <div className="flex justify-end mt-4 sm:mt-6">
+              <Button type="submit" disabled={!selectedSkill || isLoading} className="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto">
+                {isLoading ? 'Setting up quiz...' : 'Start Quiz'}
+              </Button>
+            </div>
             {error && (
-              <div className="text-red-500 text-sm mt-2">
-                {error}
-              </div>
+              <div className="text-red-500 text-sm mt-2 text-center">{error}</div>
             )}
-
-            <Button
-              type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white"
-              disabled={isLoading}
-            >
-              {isLoading ? 'Setting up quiz...' : 'Start Quiz'}
-            </Button>
           </form>
         </div>
       </div>

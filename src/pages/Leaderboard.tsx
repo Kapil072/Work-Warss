@@ -50,9 +50,9 @@ const Leaderboard = () => {
         <div className="absolute bottom-10 right-1/3 w-24 h-24 bg-blue-200 rounded-full blur-xl"></div>
       </div>
 
-      <div className="relative z-10 p-4 max-w-sm mx-auto">
+      <div className="relative z-10 p-2 sm:p-4 max-w-sm sm:max-w-2xl md:max-w-3xl mx-auto w-full">
         {/* Header */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col sm:flex-row items-center justify-between mb-6 gap-2 sm:gap-0">
           <Button 
             variant="ghost" 
             className="text-gray-800 hover:bg-gray-100 p-2" 
@@ -61,7 +61,7 @@ const Leaderboard = () => {
             <ArrowLeft className="h-4 w-4 mr-1" />
             Back
           </Button>
-          <h1 className="text-xl font-bold bg-gradient-to-r from-sky-600 to-blue-600 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-sky-600 to-blue-600 bg-clip-text text-transparent">
             Work Wars
           </h1>
           <div className="flex items-center gap-0.5 bg-yellow-500 px-2 py-0.5 rounded-full text-black font-semibold text-sm">
@@ -71,8 +71,8 @@ const Leaderboard = () => {
         </div>
 
         {/* Leaderboard Title */}
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-gray-800">Leaderboard</h2>
+        <div className="flex flex-col sm:flex-row items-center justify-between mb-6 gap-2 sm:gap-0">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">Leaderboard</h2>
           <div className="flex items-center gap-1 text-sky-600 text-sm">
             <span>How it Works</span>
             <Info size={14} />
@@ -80,55 +80,48 @@ const Leaderboard = () => {
         </div>
 
         {/* Top 3 Users Podium */}
-        <div className="flex items-end justify-center mb-8 relative h-48">
-          {/* Trophy */}
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/4">
-            <Trophy className="text-yellow-500 w-10 h-10" />
-          </div>
-
+        <div className="relative mb-8 h-56 sm:h-48 w-full max-w-lg mx-auto overflow-x-auto pt-16">
           {/* Podium Structure */}
-          <div className="flex items-end w-full h-full">
+          <div className="flex items-end w-[340px] sm:w-full h-full flex-nowrap">
             {/* 2nd Place */}
-            <div className="w-1/3 flex flex-col items-center relative h-32 bg-gray-200 rounded-t-lg shadow-md mr-0.5">
+            <div className="flex-1 min-w-[100px] flex flex-col items-center relative h-32 bg-gray-200 rounded-t-lg shadow-md mr-0.5">
               {/* User Info for 2nd Place */}
               <div className="flex flex-col items-center absolute -top-10">
                 <div className="w-12 h-12 bg-gradient-to-br from-sky-300 to-blue-400 rounded-full flex items-center justify-center border-2 border-sky-200 shadow-md mb-2">
                   <User size={20} className="text-white" />
                 </div>
                 <div className="text-center text-xs">
-                   <p className="font-semibold text-gray-800">{topUsers[1].name}</p>
-                   <span className="text-sm text-gray-600 font-medium flex items-center justify-center">{topUsers[1].score} <span className="ml-0.5">🔥</span></span>
+                  <p className="font-semibold text-gray-800">{topUsers[1].name}</p>
+                  <span className="text-sm text-gray-600 font-medium flex items-center justify-center">{topUsers[1].score} <span className="ml-0.5">🔥</span></span>
                 </div>
               </div>
               <div className="mt-auto mb-1 text-2xl font-bold text-gray-700">2</div>
             </div>
-
             {/* 1st Place */}
-            <div className="w-1/3 flex flex-col items-center relative h-40 bg-yellow-400 rounded-t-lg shadow-lg mx-0.5">
-             <Crown className="absolute -top-6 text-yellow-600 w-6 h-6" />
+            <div className="flex-1 min-w-[100px] flex flex-col items-center relative h-40 bg-yellow-400 rounded-t-lg shadow-lg mx-0.5">
+              <Crown className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-yellow-600 w-8 h-8" />
               {/* User Info for 1st Place */}
-              <div className="flex flex-col items-center absolute -top-14">
+              <div className="flex flex-col items-center absolute -top-0 left-1/2 transform -translate-x-1/2">
                 <div className="w-16 h-16 bg-gradient-to-br from-sky-300 via-blue-400 to-indigo-500 rounded-full flex items-center justify-center border-4 border-yellow-400 shadow-lg mb-2">
                   <User size={24} className="text-white" />
                 </div>
-                 <div className="text-center text-sm">
-                   <p className="font-bold text-gray-800">{topUsers[0].name}</p>
-                   <span className="text-sm text-yellow-800 font-medium flex items-center justify-center">{topUsers[0].score} <span className="ml-0.5">🔥</span></span>
+                <div className="text-center text-sm">
+                  <p className="font-bold text-gray-800">{topUsers[0].name}</p>
+                  <span className="text-sm text-yellow-800 font-medium flex items-center justify-center">{topUsers[0].score} <span className="ml-0.5">🔥</span></span>
                 </div>
               </div>
               <div className="mt-auto mb-1 text-3xl font-bold text-gray-800">1</div>
             </div>
-
             {/* 3rd Place */}
-            <div className="w-1/3 flex flex-col items-center relative h-28 bg-orange-400 rounded-t-lg shadow-md ml-0.5">
+            <div className="flex-1 min-w-[100px] flex flex-col items-center relative h-28 bg-orange-400 rounded-t-lg shadow-md ml-0.5">
               {/* User Info for 3rd Place */}
               <div className="flex flex-col items-center absolute -top-9">
                 <div className="w-12 h-12 bg-gradient-to-br from-sky-400 to-blue-500 rounded-full flex items-center justify-center border-2 border-sky-300 shadow-md mb-2">
                   <User size={20} className="text-white" />
                 </div>
                 <div className="text-center text-xs">
-                   <p className="font-semibold text-gray-800">{topUsers[2].name}</p>
-                   <span className="text-orange-800 font-medium flex items-center justify-center">{topUsers[2].score} <span className="ml-0.5">🔥</span></span>
+                  <p className="font-semibold text-gray-800">{topUsers[2].name}</p>
+                  <span className="text-orange-800 font-medium flex items-center justify-center">{topUsers[2].score} <span className="ml-0.5">🔥</span></span>
                 </div>
               </div>
               <div className="mt-auto mb-1 text-2xl font-bold text-gray-700">3</div>
@@ -137,8 +130,8 @@ const Leaderboard = () => {
         </div>
 
         {/* Current User Rank */}
-        <div className="bg-gradient-to-r from-sky-50 to-blue-50 rounded-lg p-3 mb-4 border border-sky-200 shadow-sm">
-          <div className="flex items-center justify-between text-sm">
+        <div className="bg-gradient-to-r from-sky-50 to-blue-50 rounded-lg p-3 mb-4 border border-sky-200 shadow-sm w-full">
+          <div className="flex flex-col sm:flex-row items-center justify-between text-sm gap-2">
             <span className="text-gray-700">You Currently Rank</span>
             <div className="flex items-center gap-1">
               <span className="text-xl font-bold text-gray-800">{currentUserRank}</span>
@@ -150,9 +143,9 @@ const Leaderboard = () => {
         </div>
 
         {/* Other Rankings */}
-        <div className="space-y-2">
+        <div className="space-y-2 w-full">
           {otherUsers.map((user, index) => (
-            <div key={index} className="flex items-center justify-between bg-white rounded-lg p-3 border border-gray-200 shadow-sm hover:bg-gray-50 transition-all duration-300 text-sm">
+            <div key={index} className="flex flex-col sm:flex-row items-center justify-between bg-white rounded-lg p-3 border border-gray-200 shadow-sm hover:bg-gray-50 transition-all duration-300 text-sm gap-2 sm:gap-0">
               <div className="flex items-center gap-2">
                 <div className="w-10 h-10 bg-gradient-to-br from-sky-400 to-blue-500 rounded-full flex items-center justify-center shadow-sm">
                   <User size={18} className="text-white" />
