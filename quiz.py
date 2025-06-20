@@ -30,7 +30,7 @@ class Quiz:
         try:
             # Load API key from environment
             load_dotenv()
-            api_key = os.getenv('GOOGLE_API_KEY')
+            api_key = os.getenv('sk-proj-I3odDtOa6ZlYKy8K9ll6T3BlbkFJqzdKB099Vqj2gjy5krP6')
             
             if not api_key:
                 print("No API key found. Please set GOOGLE_API_KEY in your .env file")
@@ -38,7 +38,6 @@ class Quiz:
 
             # Initialize question generator
             generator = QuestionGenerator(api_key)
-            
             # Generate questions
             self.questions = generator.generate_questions(
                 skill=skill,

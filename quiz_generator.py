@@ -2,7 +2,8 @@ import openai
 import os
 import json
 from typing import List, Dict, Any
-
+from dotenv import load_dotenv
+load_dotenv()  # Add this line after the imports
 # Configure the API key
 api_key = os.getenv("OPENAI_API_KEY")
 if not api_key:

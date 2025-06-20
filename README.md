@@ -1,4 +1,4 @@
-# Work Wars  - Interactive Quiz Application
+# Work Wars 2.0 - Interactive Quiz Application
 
 A modern, gamified quiz application built with React, TypeScript, and Express.js. This application features AI-powered question generation, an engaging user interface, and a comprehensive progress tracking system.
 
@@ -257,6 +257,30 @@ git push origin feature/your-feature-name
 - [API Documentation](./docs/api.md)
 - [Component Documentation](./docs/components.md)
 - [Deployment Guide](./docs/deployment.md)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+### Pull Request Process
+1. Update the README.md with details of changes
+2. Update the documentation if needed
+3. Ensure all tests pass
+4. Get code review approval
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👥 Authors
+
+- Your Name - Initial work
+
+## 🙏 Acknowledgments
 
 - Thanks to all contributors
 - Inspired by various quiz applications

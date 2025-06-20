@@ -1,5 +1,6 @@
 const path = require('path');
 const url = require('url');
+require('dotenv').config();
 
 const config = {
   server: {
@@ -8,7 +9,7 @@ const config = {
     corsOrigin: '*'
   },
   api: {
-    openaiApiKey: "sk-proj-I3odDtOa6ZlYKy8K9ll6T3BlbkFJqzdKB099Vqj2gjy5krP6",
+    openaiApiKey: process.env.OPENAI_API_KEY,
     baseUrl: process.env.API_BASE_URL || 'http://localhost:5000',
     rateLimit: {
       windowMs: 60 * 1000, // 1 minute
@@ -25,10 +26,10 @@ const config = {
   validation: {
     validateOpenAIKey: () => {
       if (!config.api.openaiApiKey) {
-        throw new Error('OpenAI API key is not configured');
+        throw new Error('OpenAI API key is not configured. Please set the OPENAI_API_KEY environment variable or update the config file.');
       }
       if (!config.api.openaiApiKey.startsWith('sk-')) {
-        throw new Error('Invalid OpenAI API key format');
+        throw new Error('Invalid OpenAI API key format. The key should start with "sk-"');
       }
     }
   }
